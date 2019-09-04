@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab_Room;
-
-    [SerializeField] private GameObject[] roomArray;
-    
+    [SerializeField] public GameObject prefab_Room;
+    [Range(1,10)]
+    [SerializeField] public int roomAmount = 1;
+    private createRooms _createRooms;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+         _createRooms = gameObject.AddComponent<createRooms>();
+         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
