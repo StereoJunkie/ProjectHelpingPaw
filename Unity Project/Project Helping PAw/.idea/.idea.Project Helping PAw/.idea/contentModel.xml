@@ -7,14 +7,16 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="CameraMovement.cs" t="Include" />
-        <e p="createRooms.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="AsmdefDebug.cs" t="Include" />
         </e>
-        <e p="Room.cs" t="Include" />
-        <e p="RoomManager.cs" t="Include" />
-        <e p="SelectedRoom.cs" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="CameraMovement.cs" t="Include" />
+          <e p="createRooms.cs" t="Include" />
+          <e p="Room.cs" t="Include" />
+          <e p="RoomManager.cs" t="Include" />
+          <e p="SelectedManager.cs" t="Include" />
+        </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

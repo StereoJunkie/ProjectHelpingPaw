@@ -10,6 +10,7 @@ public class createRooms : MonoBehaviour
     private GameObject room_Prefab;
     private BoxCollider roomCollider;
     private RoomManager roomManager;
+    private GameObject spawnedRoom;
 
     private void Start()
     {
@@ -30,7 +31,8 @@ public class createRooms : MonoBehaviour
             {
                 if (j == 0)
                 {
-                    Instantiate(room_Prefab, bottomLeftest, Quaternion.identity);
+                    spawnedRoom = Instantiate(room_Prefab, bottomLeftest, Quaternion.identity);
+                    spawnedRoom.tag = "Room";
                     amountRoomSpawned++;
                 }
                 else
@@ -39,7 +41,8 @@ public class createRooms : MonoBehaviour
                     {
                         Vector3 spawnLocation =
                             bottomLeftest + new Vector3(-roomCollider.size.x * i, 0, -roomCollider.size.z*i);
-                        Instantiate(room_Prefab, spawnLocation, Quaternion.identity);
+                        spawnedRoom = Instantiate(room_Prefab, spawnLocation, Quaternion.identity);
+                        spawnedRoom.tag = "Room";
                     }
                     amountRoomSpawned++;
                 }

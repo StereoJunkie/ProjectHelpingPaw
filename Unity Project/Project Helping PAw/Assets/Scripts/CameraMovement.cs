@@ -17,6 +17,7 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
+        //developer mode
         if (roomManager.developerMode)
         {
             if (Input.GetMouseButtonDown(0))
