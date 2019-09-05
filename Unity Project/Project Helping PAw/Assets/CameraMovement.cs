@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -7,8 +8,29 @@ public class CameraMovement : MonoBehaviour
 {
 
     private Vector3 touchStart;
+    private RoomManager roomManager;
+
+    private void Start()
+    {
+        roomManager = FindObjectOfType<RoomManager>();
+    }
+
     void Update()
     {
+        if (roomManager.developerMode)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Camera.main.transform.position += direction;
+            }
+        }
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
