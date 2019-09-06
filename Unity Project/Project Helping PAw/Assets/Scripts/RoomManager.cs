@@ -10,13 +10,14 @@ public class RoomManager : MonoBehaviour
 
     [SerializeField] public bool developerMode = false;
     [SerializeField] public bool panAble = true;
+    [SerializeField] public GameObject[] rooms; 
     private createRooms _createRooms;
     
     // Start is called before the first frame update
     void Start()
     {
          _createRooms = gameObject.AddComponent<createRooms>();
-         
+         rooms = new GameObject[roomAmount];
     }
     
     private void OnGUI()
@@ -24,6 +25,7 @@ public class RoomManager : MonoBehaviour
         if (developerMode)
         {
             GUI.Label(new Rect(10, 10, 200, 200), "Touch count: " + Input.touchCount);
+            
         }
     }
 }

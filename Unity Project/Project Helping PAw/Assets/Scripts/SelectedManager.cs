@@ -11,11 +11,13 @@ public class SelectedManager : MonoBehaviour
     [Range(-10f,20f)][SerializeField] private int cameraOffset;
     [Range(1f, 5f)] [SerializeField] private float zoomAmount;
     [Range(1f, 10f)] [SerializeField] private float zoomSpeed;
+    [Range(1f, 10f)] [SerializeField] private float roomMoveSpeed;
     
     private Vector3 highlightedRoomCenter;
     private float tempTime;
     private RoomManager roomManager;
     private Camera mainCamera;
+    private Vector3 mainCameraOrigin;
     private BoxCollider prefabCollider;
     private Vector3 centerOffset;
     private float originalZoom;
@@ -25,6 +27,7 @@ public class SelectedManager : MonoBehaviour
     {
         roomManager = FindObjectOfType<RoomManager>();
         mainCamera = Camera.main;
+        mainCameraOrigin = mainCamera.transform.position;
         prefabCollider = roomManager.prefab_Room.GetComponent<BoxCollider>();
         if (prefabCollider != null)
         {
@@ -45,6 +48,37 @@ public class SelectedManager : MonoBehaviour
                 highlightedRoomCenter + new Vector3(-cameraOffset,cameraOffset,cameraOffset), cameraLerpSpeed * Time.deltaTime);
             tempVector = Vector2.Lerp(new Vector2(mainCamera.orthographicSize,mainCamera.orthographicSize), new Vector2(zoomAmount,zoomAmount), zoomSpeed * Time.deltaTime);
             mainCamera.orthographicSize = tempVector.x;
+            foreach (GameObject room in roomManager.rooms)
+            {
+                if (room != highlightRoom)
+                {
+                    Room tempRoom = room.GetComponent<Room>();
+                    room.transform.position =
+                        Vector3.Lerp(room.transform.position, new Vector3(tempRoom.spawnPosition.x, tempRoom.spawnPosition.y+20, tempRoom.spawnPosition.z),roomMoveSpeed * Time.deltaTime);
+                    
+                }
+            }
+        }
+        else if (highlightRoom == null)
+        {
+            if (mainCamera.transform.position == mainCameraOrigin)
+            {
+                mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position,
+                    mainCameraOrigin, cameraLerpSpeed * Time.deltaTime);
+            }
+
+            tempVector = Vector2.Lerp(new Vector2(mainCamera.orthographicSize,mainCamera.orthographicSize), new Vector2(originalZoom,originalZoom), zoomSpeed * Time.deltaTime);
+            mainCamera.orthographicSize = tempVector.x;
+            foreach (GameObject room in roomManager.rooms)
+            {
+                if (room != highlightRoom)
+                {
+                    Room tempRoom = room.GetComponent<Room>();
+                    room.transform.position =
+                        Vector3.Lerp(room.transform.position, new Vector3(tempRoom.spawnPosition.x, tempRoom.spawnPosition.y, tempRoom.spawnPosition.z),roomMoveSpeed * Time.deltaTime);
+                    
+                }
+            }
         }
     }
 
@@ -69,6 +103,11 @@ public class SelectedManager : MonoBehaviour
                     {
                         highlightRoom = selection;
                     }
+                    
+                }
+                else
+                {
+                    highlightRoom = null;
                 }
                 tempTime = 0f;
             }
@@ -96,6 +135,11 @@ public class SelectedManager : MonoBehaviour
                     {
                         highlightRoom = selection;
                     }
+                    
+                }
+                else
+                {
+                    highlightRoom = null;
                 }
                 tempTime = 0f;
             }

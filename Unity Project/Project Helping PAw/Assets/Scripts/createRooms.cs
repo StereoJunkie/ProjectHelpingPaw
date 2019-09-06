@@ -33,6 +33,7 @@ public class createRooms : MonoBehaviour
                 {
                     spawnedRoom = Instantiate(room_Prefab, bottomLeftest, Quaternion.identity);
                     spawnedRoom.tag = "Room";
+                    roomManager.rooms[amountRoomSpawned] = spawnedRoom;
                     amountRoomSpawned++;
                 }
                 else
@@ -43,6 +44,7 @@ public class createRooms : MonoBehaviour
                             bottomLeftest + new Vector3(-roomCollider.size.x * i, 0, -roomCollider.size.z*i);
                         spawnedRoom = Instantiate(room_Prefab, spawnLocation, Quaternion.identity);
                         spawnedRoom.tag = "Room";
+                        roomManager.rooms[amountRoomSpawned] = spawnedRoom;
                     }
                     amountRoomSpawned++;
                 }

@@ -154,7 +154,8 @@ MonoBehaviour:
   highlightRoom: {fileID: 0}
   cameraOffset: 2
   zoomAmount: 3.11
-  zoomSpeed: 3.23
+  zoomSpeed: 1.16
+  roomMoveSpeed: 1
 --- !u!4 &448279373
 Transform:
   m_ObjectHideFlags: 0
@@ -366,6 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1914473539}
   - component: {fileID: 1914473537}
+  - component: {fileID: 1914473538}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -389,6 +391,20 @@ MonoBehaviour:
     type: 3}
   roomAmount: 10
   developerMode: 1
+  panAble: 1
+  rooms: []
+--- !u!114 &1914473538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914473536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f18303d9f22104458decfa905de6b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1914473539
 Transform:
   m_ObjectHideFlags: 0
