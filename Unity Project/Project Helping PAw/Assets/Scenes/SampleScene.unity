@@ -152,7 +152,7 @@ MonoBehaviour:
   maxClickHold: 0.296
   cameraLerpSpeed: 1.64
   highlightRoom: {fileID: 0}
-  cameraOffset: 10
+  cameraOffset: 2
   zoomAmount: 3.11
   zoomSpeed: 3.23
 --- !u!4 &448279373
@@ -365,7 +365,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1914473539}
-  - component: {fileID: 1914473538}
   - component: {fileID: 1914473537}
   m_Layer: 0
   m_Name: GameManager
@@ -388,26 +387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab_Room: {fileID: 624415732753947553, guid: 652c2d4852ba7cb4eae9626201c3ea9d,
     type: 3}
-  roomAmount: 7
+  roomAmount: 10
   developerMode: 1
---- !u!114 &1914473538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914473536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3018290ec484c4bbf830d86bf90a49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxClickHold: 0
-  cameraLerpSpeed: 0
-  highlightRoom: {fileID: 0}
-  cameraOffset: 0
-  zoomAmount: 0
-  zoomSpeed: 0
 --- !u!4 &1914473539
 Transform:
   m_ObjectHideFlags: 0

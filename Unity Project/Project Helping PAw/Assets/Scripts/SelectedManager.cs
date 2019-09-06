@@ -8,7 +8,7 @@ public class SelectedManager : MonoBehaviour
     [Range(0.01f, 1f)] [SerializeField] private float maxClickHold;
     [Range(0.1f, 5f)] [SerializeField] private float cameraLerpSpeed;
     [SerializeField] private GameObject highlightRoom;
-    [Range(1f,20f)][SerializeField] private int cameraOffset;
+    [Range(-10f,20f)][SerializeField] private int cameraOffset;
     [Range(1f, 5f)] [SerializeField] private float zoomAmount;
     [Range(1f, 10f)] [SerializeField] private float zoomSpeed;
     
@@ -25,8 +25,13 @@ public class SelectedManager : MonoBehaviour
     {
         roomManager = FindObjectOfType<RoomManager>();
         mainCamera = Camera.main;
-        centerOffset = new Vector3(prefabCollider.size.x * 0.5f,
-            prefabCollider.size.y * 0.5f, prefabCollider.size.z * 0.5f);
+        prefabCollider = roomManager.prefab_Room.GetComponent<BoxCollider>();
+        if (prefabCollider != null)
+        {
+            centerOffset = new Vector3(prefabCollider.size.x * 0.5f,
+                prefabCollider.size.y * 0.5f, -prefabCollider.size.z * 0.5f);
+        }
+
         originalZoom = mainCamera.orthographicSize;
     }
 
@@ -37,7 +42,7 @@ public class SelectedManager : MonoBehaviour
         {
             highlightedRoomCenter = highlightRoom.transform.position + centerOffset;
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position,
-                highlightedRoomCenter + new Vector3(-cameraOffset,cameraOffset*1.5f,cameraOffset), cameraLerpSpeed * Time.deltaTime);
+                highlightedRoomCenter + new Vector3(-cameraOffset,cameraOffset,cameraOffset), cameraLerpSpeed * Time.deltaTime);
             tempVector = Vector2.Lerp(new Vector2(mainCamera.orthographicSize,mainCamera.orthographicSize), new Vector2(zoomAmount,zoomAmount), zoomSpeed * Time.deltaTime);
             mainCamera.orthographicSize = tempVector.x;
         }

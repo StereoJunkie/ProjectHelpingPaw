@@ -17,30 +17,33 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        //developer mode
-        if (roomManager.developerMode)
+        if(roomManager.panAble)
         {
-            if (Input.GetMouseButtonDown(0))
+            //developer mode
+            if (roomManager.developerMode)
             {
-                touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                }
+
+                if (Input.GetMouseButton(0))
+                {
+                    Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    Camera.main.transform.position += direction;
+                }
             }
 
-            if (Input.GetMouseButton(0))
+            if (Input.touchCount > 0)
             {
-                Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Camera.main.transform.position += direction;
-            }
-        }
-
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            if(touch.phase == TouchPhase.Began)
-                touchStart = Camera.main.ScreenToWorldPoint(touch.position);
-            if (touch.phase == TouchPhase.Moved)
-            {
-                Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(touch.position);
-                Camera.main.transform.position += direction;
+                Touch touch = Input.GetTouch(0);
+                if (touch.phase == TouchPhase.Began)
+                    touchStart = Camera.main.ScreenToWorldPoint(touch.position);
+                if (touch.phase == TouchPhase.Moved)
+                {
+                    Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(touch.position);
+                    Camera.main.transform.position += direction;
+                }
             }
         }
     }

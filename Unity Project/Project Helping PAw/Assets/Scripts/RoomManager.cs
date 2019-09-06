@@ -9,6 +9,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] public int roomAmount = 1;
 
     [SerializeField] public bool developerMode = false;
+    [SerializeField] public bool panAble = true;
     private createRooms _createRooms;
     
     // Start is called before the first frame update
