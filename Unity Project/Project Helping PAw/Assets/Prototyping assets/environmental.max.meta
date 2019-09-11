@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: c910034609b042645a07463be69df758
+guid: 418372c2fa1c390478082f25d6399847
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 62ec10943770196499f953679a9ad842, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -78,27 +73,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton:
-    - name: DOGGY(Clone)
-      parentName: 
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Point
-      parentName: DOGGY(Clone)
-      position: {x: 0.70103735, y: 4.821703, z: -4.117567}
-      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Plane
-      parentName: DOGGY(Clone)
-      position: {x: -0.33237755, y: 0.8205864, z: 0}
-      rotation: {x: -0.6108271, y: 0.35621673, z: 0.3562168, w: 0.61082697}
-      scale: {x: 0.39658117, y: 0.39658117, z: 1}
-    - name: Camera.001
-      parentName: DOGGY(Clone)
-      position: {x: 4.3372264, y: 2.12079, z: -4.8970914}
-      rotation: {x: 0.06463956, y: -0.37002516, z: 0.06382314, w: 0.92457}
-      scale: {x: 2.206398, y: 41.355255, z: 1.2205755}
+    skeleton: []
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -109,10 +84,10 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

@@ -7,16 +7,24 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="fpsDisplay.cs" t="Include" />
+        <e p="NeedZoneEffects.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="AsmdefDebug.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="Animal.cs" t="Include" />
+          <e p="AnimalStatManager.cs" t="Include" />
           <e p="CameraMovement.cs" t="Include" />
           <e p="createRooms.cs" t="Include" />
+          <e p="DailyStatusEffectCheck.cs" t="Include" />
+          <e p="DayAndNightCycle.cs" t="Include" />
+          <e p="Dog.cs" t="Include" />
+          <e p="fpsDisplay.cs" t="Include" />
           <e p="Room.cs" t="Include" />
           <e p="RoomManager.cs" t="Include" />
           <e p="SelectedManager.cs" t="Include" />
+          <e p="StatusEffect.cs" t="Include" />
+          <e p="StatusManager.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

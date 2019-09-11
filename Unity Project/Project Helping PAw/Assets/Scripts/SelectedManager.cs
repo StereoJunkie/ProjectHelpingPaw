@@ -44,9 +44,12 @@ public class SelectedManager : MonoBehaviour
         if (highlightRoom != null && mainCamera != null)
         {
             highlightedRoomCenter = highlightRoom.transform.position + centerOffset;
+            Vector3 newCameraPosition = highlightedRoomCenter + new Vector3(-cameraOffset, cameraOffset, cameraOffset);
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position,
-                highlightedRoomCenter + new Vector3(-cameraOffset,cameraOffset,cameraOffset), cameraLerpSpeed * Time.deltaTime);
-            tempVector = Vector2.Lerp(new Vector2(mainCamera.orthographicSize,mainCamera.orthographicSize), new Vector2(zoomAmount,zoomAmount), zoomSpeed * Time.deltaTime);
+                    newCameraPosition,
+                    cameraLerpSpeed * Time.deltaTime);
+
+                tempVector = Vector2.Lerp(new Vector2(mainCamera.orthographicSize,mainCamera.orthographicSize), new Vector2(zoomAmount,zoomAmount), zoomSpeed * Time.deltaTime);
             mainCamera.orthographicSize = tempVector.x;
             foreach (GameObject room in roomManager.rooms)
             {
@@ -80,8 +83,9 @@ public class SelectedManager : MonoBehaviour
                 }
             }
         }
+        
     }
-
+    
     private void Select()
     {
         //developer mode

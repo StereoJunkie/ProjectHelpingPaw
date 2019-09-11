@@ -155,7 +155,7 @@ MonoBehaviour:
   cameraOffset: 2
   zoomAmount: 3.11
   zoomSpeed: 1.16
-  roomMoveSpeed: 1
+  roomMoveSpeed: 1.98
 --- !u!4 &448279373
 Transform:
   m_ObjectHideFlags: 0
@@ -368,6 +368,11 @@ GameObject:
   - component: {fileID: 1914473539}
   - component: {fileID: 1914473537}
   - component: {fileID: 1914473538}
+  - component: {fileID: 1914473540}
+  - component: {fileID: 1914473541}
+  - component: {fileID: 1914473542}
+  - component: {fileID: 1914473543}
+  - component: {fileID: 1914473544}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -419,6 +424,93 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1914473540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914473536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837e9f6430f08114d98bf7a19828d547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxStartHealth: 50
+  MaxStartBehaviour: 50
+  MaxStartLook: 50
+  MaxStartNutrition: 50
+  MaxStartHygiene: 50
+  MaxStartSocialization: 50
+  NutritionToHygiene: 32.1
+  NutritionToSocialization: 65.4
+  HygieneToSocialization: 50.6
+  drainageNutrition: 24.3
+  drainageHygiene: 14.7
+  drainageSocialization: 14.8
+--- !u!114 &1914473541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914473536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2e63d7e4d404645bf69cca6c1cfcc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minutesInADay: 5
+  DaysSinceStart: 0
+  timePassedSeconds: 0
+  timePassedMinutes: 0
+  timePassedMinPerDay: 0
+  timeActive: 1
+--- !u!114 &1914473542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914473536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c353354b5e8aee45a9e14b776e5fe1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timesToCheckPerDay: 5
+--- !u!114 &1914473543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914473536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1100a4dd6980a14a8ea49c84c616142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nutritionRedZone: {fileID: 0}
+  nutritionYellowZone: {fileID: 0}
+  hygieneRedZone: {fileID: 0}
+  hygieneYellowZone: {fileID: 0}
+  socializationRedZone: {fileID: 0}
+  socializationYellowZone: {fileID: 0}
+  NeedZoneEffectList: []
+--- !u!114 &1914473544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914473536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22eeff2e5769e54cb7548667834df52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusEffects: []
 --- !u!108 &1254545510208439244
 Light:
   m_ObjectHideFlags: 0
