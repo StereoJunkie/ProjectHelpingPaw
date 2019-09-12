@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoomManager : MonoBehaviour
 {
     [SerializeField] public GameObject prefab_Room;
+    [SerializeField] public GameObject outside_Prefab;
     [Range(1,10)]
     [SerializeField] public int roomAmount = 1;
 

@@ -8,6 +8,7 @@ public class createRooms : MonoBehaviour
 {
     private int roomAmount;
     private GameObject room_Prefab;
+    private GameObject outside_Prefab;
     private BoxCollider roomCollider;
     private RoomManager roomManager;
     private GameObject spawnedRoom;
@@ -16,11 +17,12 @@ public class createRooms : MonoBehaviour
     {
         roomManager = GetComponent<RoomManager>();
         roomAmount = roomManager.roomAmount;
+        outside_Prefab = roomManager.outside_Prefab;
         room_Prefab = roomManager.prefab_Room;
         roomCollider = room_Prefab.GetComponent<BoxCollider>();
         generateRooms();
     }
-    
+
     private void generateRooms()
     {
         int amountRoomSpawned = 0;

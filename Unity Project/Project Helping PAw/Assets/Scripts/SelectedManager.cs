@@ -23,6 +23,8 @@ public class SelectedManager : MonoBehaviour
     private float originalZoom;
     private Vector2 tempVector;
 
+    private bool positionReseted = false;
+
     private void Start()
     {
         roomManager = FindObjectOfType<RoomManager>();
@@ -43,6 +45,7 @@ public class SelectedManager : MonoBehaviour
         Select();
         if (highlightRoom != null && mainCamera != null)
         {
+            positionReseted = false;
             highlightedRoomCenter = highlightRoom.transform.position + centerOffset;
             Vector3 newCameraPosition = highlightedRoomCenter + new Vector3(-cameraOffset, cameraOffset, cameraOffset);
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position,
@@ -64,10 +67,14 @@ public class SelectedManager : MonoBehaviour
         }
         else if (highlightRoom == null)
         {
-            if (mainCamera.transform.position == mainCameraOrigin)
+            if (mainCamera.transform.position != mainCameraOrigin && !positionReseted)
             {
                 mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position,
                     mainCameraOrigin, cameraLerpSpeed * Time.deltaTime);
+                if (Vector3.Distance(mainCamera.transform.position,mainCameraOrigin) < 2)
+                {
+                    positionReseted = true;
+                }
             }
 
             tempVector = Vector2.Lerp(new Vector2(mainCamera.orthographicSize,mainCamera.orthographicSize), new Vector2(originalZoom,originalZoom), zoomSpeed * Time.deltaTime);

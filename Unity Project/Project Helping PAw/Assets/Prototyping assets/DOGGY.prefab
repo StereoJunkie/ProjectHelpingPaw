@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1906221755839637091}
   - component: {fileID: 8044751067690998776}
   - component: {fileID: 4006776635688343490}
+  - component: {fileID: 2059278812277970603}
+  - component: {fileID: 9022272896911827243}
   m_Layer: 0
   m_Name: DOGGY
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3183793486422316144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.3207245, y: 0.34841537, z: -0.044391632}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.48584, y: 0.48584, z: 0.48584}
   m_Children:
   - {fileID: 8184227292810632534}
   m_Father: {fileID: 0}
@@ -64,7 +66,42 @@ MonoBehaviour:
   Sheltered: 0
   Adopted: 0
   activeEffects: []
+  Health: 0
+  Behaviour: 0
+  Look: 0
+  Nutrition: 0
+  Hygiene: 0
+  Socialization: 0
   dailyStatusEffects: []
+--- !u!54 &2059278812277970603
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183793486422316144}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 3
+--- !u!65 &9022272896911827243
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183793486422316144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5123822, y: 1.2925127, z: 1.9330858}
+  m_Center: {x: -0.3496356, y: 0.7631238, z: -0.28374106}
 --- !u!1 &3509053826177985589
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,13 +127,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3509053826177985589}
-  m_LocalRotation: {x: -0.610827, y: 0.35621673, z: 0.35621676, w: 0.61082697}
+  m_LocalRotation: {x: -0.4952473, y: 0.50470793, z: 0.50470793, w: 0.4952473}
   m_LocalPosition: {x: -0.33237755, y: 0.8205864, z: 0}
-  m_LocalScale: {x: 0.39658117, y: 0.39658117, z: 1}
+  m_LocalScale: {x: 0.34899142, y: 0.34899142, z: 0.88}
   m_Children: []
   m_Father: {fileID: 1906221755839637091}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 91.08401}
 --- !u!33 &7341950008683173310
 MeshFilter:
   m_ObjectHideFlags: 0
