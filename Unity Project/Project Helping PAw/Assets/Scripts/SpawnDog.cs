@@ -7,13 +7,13 @@ public class SpawnDog : MonoBehaviour
     [Range(1f, 10f)] [SerializeField] private int spawnRatePerDay;
     [SerializeField] private GameObject gameManager;
     [SerializeField] private GameObject prefab_dog;
-    [SerializeField] private List<int> timestamps;
+    [SerializeField] private List<float> timestamps;
 
     private BoxCollider colliderBox;
     private DayAndNightCycle dayCycle;
     private DailyStatusEffectCheck dailyCheck;
     private int timesToCheckPerDay;
-    private List<int> timeStampsToCheck;
+    private List<float> timeStampsToCheck;
     private int lastMinute;
     private List<bool> spawnedPerTimeStamp;
     private int lastDay;
@@ -23,7 +23,7 @@ public class SpawnDog : MonoBehaviour
         dayCycle = gameManager.GetComponent<DayAndNightCycle>();
         dailyCheck = gameManager.GetComponent<DailyStatusEffectCheck>();
         colliderBox = GetComponent<BoxCollider>();
-        timeStampsToCheck = new List<int>();
+        timeStampsToCheck = new List<float>();
         spawnedPerTimeStamp = new List<bool>();
         lastDay = 0;
         
@@ -32,7 +32,7 @@ public class SpawnDog : MonoBehaviour
         {
             for (int i = 1; i <= spawnRatePerDay; i++)
             {
-                int input = dayCycle.minutesInADay / spawnRatePerDay * i;
+                float input = dayCycle.minutesInADay / spawnRatePerDay * i;
                 timeStampsToCheck.Add(input);
             }
             for (int i = 0; i < timeStampsToCheck.Count; i++)

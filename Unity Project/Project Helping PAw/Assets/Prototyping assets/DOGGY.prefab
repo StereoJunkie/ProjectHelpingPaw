@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 1906221755839637091}
   - component: {fileID: 8044751067690998776}
   - component: {fileID: 4006776635688343490}
-  - component: {fileID: 2059278812277970603}
-  - component: {fileID: 9022272896911827243}
+  - component: {fileID: 8688846023756095883}
   m_Layer: 0
   m_Name: DOGGY
   m_TagString: Untagged
@@ -73,7 +72,7 @@ MonoBehaviour:
   Hygiene: 0
   Socialization: 0
   dailyStatusEffects: []
---- !u!54 &2059278812277970603
+--- !u!54 &8688846023756095883
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,19 +88,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 3
---- !u!65 &9022272896911827243
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3183793486422316144}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5123822, y: 1.2925127, z: 1.9330858}
-  m_Center: {x: -0.3496356, y: 0.7631238, z: -0.28374106}
 --- !u!1 &3509053826177985589
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,6 +99,7 @@ GameObject:
   - component: {fileID: 8184227292810632534}
   - component: {fileID: 7341950008683173310}
   - component: {fileID: 3184425615627944892}
+  - component: {fileID: 6737657344956962922}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -180,3 +167,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6737657344956962922
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3509053826177985589}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -462981019419857548, guid: c910034609b042645a07463be69df758, type: 3}

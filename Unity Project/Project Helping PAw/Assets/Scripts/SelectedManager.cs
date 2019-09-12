@@ -8,11 +8,11 @@ public class SelectedManager : MonoBehaviour
     [Range(0.01f, 1f)] [SerializeField] private float maxClickHold;
     [Range(0.1f, 5f)] [SerializeField] private float cameraLerpSpeed;
     [SerializeField] private GameObject highlightRoom;
-    [Range(-10f,20f)][SerializeField] private int cameraOffset;
+    [Range(-10f, 20f)] [SerializeField] private int cameraOffset;
     [Range(1f, 5f)] [SerializeField] private float zoomAmount;
     [Range(1f, 10f)] [SerializeField] private float zoomSpeed;
     [Range(1f, 10f)] [SerializeField] private float roomMoveSpeed;
-    
+
     private Vector3 highlightedRoomCenter;
     private float tempTime;
     private RoomManager roomManager;
@@ -22,6 +22,7 @@ public class SelectedManager : MonoBehaviour
     private Vector3 centerOffset;
     private float originalZoom;
     private Vector2 tempVector;
+    private bool touchMoved = false;
 
     private bool positionReseted = false;
 
@@ -49,10 +50,11 @@ public class SelectedManager : MonoBehaviour
             highlightedRoomCenter = highlightRoom.transform.position + centerOffset;
             Vector3 newCameraPosition = highlightedRoomCenter + new Vector3(-cameraOffset, cameraOffset, cameraOffset);
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position,
-                    newCameraPosition,
-                    cameraLerpSpeed * Time.deltaTime);
+                newCameraPosition,
+                cameraLerpSpeed * Time.deltaTime);
 
-                tempVector = Vector2.Lerp(new Vector2(mainCamera.orthographicSize,mainCamera.orthographicSize), new Vector2(zoomAmount,zoomAmount), zoomSpeed * Time.deltaTime);
+            tempVector = Vector2.Lerp(new Vector2(mainCamera.orthographicSize, mainCamera.orthographicSize),
+                new Vector2(zoomAmount, zoomAmount), zoomSpeed * Time.deltaTime);
             mainCamera.orthographicSize = tempVector.x;
             foreach (GameObject room in roomManager.rooms)
             {
@@ -60,8 +62,9 @@ public class SelectedManager : MonoBehaviour
                 {
                     Room tempRoom = room.GetComponent<Room>();
                     room.transform.position =
-                        Vector3.Lerp(room.transform.position, new Vector3(tempRoom.spawnPosition.x, tempRoom.spawnPosition.y+20, tempRoom.spawnPosition.z),roomMoveSpeed * Time.deltaTime);
-                    
+                        Vector3.Lerp(room.transform.position,
+                            new Vector3(tempRoom.spawnPosition.x, tempRoom.spawnPosition.y + 20,
+                                tempRoom.spawnPosition.z), roomMoveSpeed * Time.deltaTime);
                 }
             }
         }
@@ -71,13 +74,14 @@ public class SelectedManager : MonoBehaviour
             {
                 mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position,
                     mainCameraOrigin, cameraLerpSpeed * Time.deltaTime);
-                if (Vector3.Distance(mainCamera.transform.position,mainCameraOrigin) < 2)
+                if (Vector3.Distance(mainCamera.transform.position, mainCameraOrigin) < 2)
                 {
                     positionReseted = true;
                 }
             }
 
-            tempVector = Vector2.Lerp(new Vector2(mainCamera.orthographicSize,mainCamera.orthographicSize), new Vector2(originalZoom,originalZoom), zoomSpeed * Time.deltaTime);
+            tempVector = Vector2.Lerp(new Vector2(mainCamera.orthographicSize, mainCamera.orthographicSize),
+                new Vector2(originalZoom, originalZoom), zoomSpeed * Time.deltaTime);
             mainCamera.orthographicSize = tempVector.x;
             foreach (GameObject room in roomManager.rooms)
             {
@@ -85,14 +89,14 @@ public class SelectedManager : MonoBehaviour
                 {
                     Room tempRoom = room.GetComponent<Room>();
                     room.transform.position =
-                        Vector3.Lerp(room.transform.position, new Vector3(tempRoom.spawnPosition.x, tempRoom.spawnPosition.y, tempRoom.spawnPosition.z),roomMoveSpeed * Time.deltaTime);
-                    
+                        Vector3.Lerp(room.transform.position,
+                            new Vector3(tempRoom.spawnPosition.x, tempRoom.spawnPosition.y, tempRoom.spawnPosition.z),
+                            roomMoveSpeed * Time.deltaTime);
                 }
             }
         }
-        
     }
-    
+
     private void Select()
     {
         //developer mode
@@ -114,12 +118,12 @@ public class SelectedManager : MonoBehaviour
                     {
                         highlightRoom = selection;
                     }
-                    
                 }
                 else
                 {
                     highlightRoom = null;
                 }
+
                 tempTime = 0f;
             }
             else if (Input.GetMouseButtonUp(0))
@@ -127,37 +131,53 @@ public class SelectedManager : MonoBehaviour
                 tempTime = 0f;
             }
         }
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Moved)
+            if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Began ||
+                touch.phase == TouchPhase.Stationary)
             {
                 tempTime += Time.deltaTime;
             }
 
-            if (touch.phase == TouchPhase.Ended && tempTime < maxClickHold)
+            if (touch.deltaPosition.magnitude > 0)
+                touchMoved = true;
+            
+            if (touch.phase == TouchPhase.Ended)
             {
-                Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
+                if (!touchMoved) //tempTime < maxClickHold)
                 {
-                    GameObject selection = hit.transform.gameObject;
-                    if (selection != null && selection.CompareTag("Room"))
+                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit))
                     {
-                        highlightRoom = selection;
+                        GameObject selection = hit.transform.gameObject;
+                        if (selection != null && selection.CompareTag("Room"))
+                        {
+                            highlightRoom = selection;
+                        }
                     }
-                    
+                    else
+                    {
+                        highlightRoom = null;
+                    }
+
+                    tempTime = 0f;
                 }
                 else
                 {
-                    highlightRoom = null;
+                    tempTime = 0f;
                 }
-                tempTime = 0f;
-            }
-            else if (touch.phase == TouchPhase.Ended)
-            {
-                tempTime = 0f;
+
+                touchMoved = false;
             }
         }
+    }
+
+    private void OnGUI()
+    {
+        if (roomManager.developerMode)
+            GUI.Label(new Rect(10, 40, 200, 200), "TOUCH TIME: " + tempTime);
     }
 }
