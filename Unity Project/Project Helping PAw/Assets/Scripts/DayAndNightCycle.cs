@@ -11,7 +11,8 @@ public class DayAndNightCycle : MonoBehaviour
     [SerializeField] public float timePassedMinutes;
     public int timePassedMinPerDay;
     public bool timeActive;
-    private int previousDay;
+    public int LastMinute;
+    public int previousDay;
 
     private void Start()
     {
@@ -25,6 +26,8 @@ public class DayAndNightCycle : MonoBehaviour
 
     private void Update()
     {
+        if((int) timePassedMinutes > LastMinute)
+            LastMinute = (int) timePassedMinutes;
         if (timeActive)
         {
             timePassedSeconds += Time.deltaTime;

@@ -19,6 +19,8 @@ public class AnimalStatManager : MonoBehaviour
     [Range(1f, 50f)] [SerializeField] public float drainageHygiene;
     [Range(1f, 50f)] [SerializeField] public float drainageSocialization;
 
+    [Range(10f, 240f)] [SerializeField] public float ActivityTimer;
+
     private void Start()
     {
         NutritionToHygiene *= 0.01f;

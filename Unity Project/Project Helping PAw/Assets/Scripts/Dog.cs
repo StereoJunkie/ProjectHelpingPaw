@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
+using Object = System.Object;
 using Random = UnityEngine.Random;
 
 public class Dog : Animal
@@ -10,6 +13,7 @@ public class Dog : Animal
     private int timesToCheckPerDay;
     private List<int> timeStampsToCheck;
     public List<StatusEffect> dailyStatusEffects;
+    [SerializeField] private List<string> currentActiveEffects;
     
     private AnimalStatManager StatManager;
     private StatusManager statusManager;
@@ -19,8 +23,16 @@ public class Dog : Animal
     private int lastMinute;
     private NeedZoneEffects needZoneEffectObject;
     private List<int> needEffectIndex;
+    private DogActivities dogActivities;
+    public GameObject room;
+    private Room roomScript;
 
-    private List<StatusEffect> needBarEffects;
+
+    public bool poopTimer = false;
+    public float poopTimePassed = 0f;
+    
+
+    public List<StatusEffect> needBarEffects;
     
 
     void Awake()
@@ -28,6 +40,7 @@ public class Dog : Animal
         gameManager = GameObject.Find("GameManager");
         if(gameManager == null)
             Debug.LogError("Help");
+        roomManager = gameManager.GetComponent<RoomManager>();
         StatManager = gameManager.GetComponent<AnimalStatManager>();
         dayNightCycle = gameManager.GetComponent<DayAndNightCycle>();
         DailyStatusInfo = gameManager.GetComponent<DailyStatusEffectCheck>();
@@ -53,7 +66,7 @@ public class Dog : Animal
 
         if (statusManager.statusEffects.Count != 0)
         {
-            activeEffects = statusManager.statusEffects;
+            activeEffects = new List<StatusEffect>(statusManager.statusEffects);
             foreach (StatusEffect needEffect in needBarEffects)
             {
                 if (activeEffects.Contains(needEffect))
@@ -106,6 +119,58 @@ public class Dog : Animal
 
     void Update()
     {
+        //adoption process
+        if (dayNightCycle.timeActive)
+        {
+            if (dayNightCycle.DaysSinceStart > dayNightCycle.previousDay)
+            {
+                float randomAdoptionChance = Random.Range(1f, 100f);
+                if (randomAdoptionChance < CalculateAdoptionChance())
+                {
+                    Adopted = true;
+                    Sheltered = false;
+                    Debug.Log(name + " Has been adopted!");
+                }
+
+            }
+        }
+
+        //show current active effects
+        foreach (StatusEffect effect in activeEffects)
+        {
+            if (effect.effectName == "Aggressive")
+            {
+                foreach (StatusEffect deffect in activeEffects)
+                {
+                    if (deffect.effectName == "Bored")
+                        deffect.ActivateEffect = false;
+                }
+            }
+                
+            if (effect.ActivateEffect)
+            {
+                if (!currentActiveEffects.Contains(effect.effectName))
+                    currentActiveEffects.Add(effect.effectName);
+            }
+            else
+            {
+                if (currentActiveEffects.Contains(effect.effectName))
+                    currentActiveEffects.Remove(effect.effectName);
+            }
+        }
+        
+        
+        
+        
+        if (Adopted)
+        {
+            roomManager.DogsAdopted += 1;
+            Destroy(this.transform.parent.gameObject);
+        }
+        if (dogActivities == null && Sheltered)
+        {
+            dogActivities = gameObject.AddComponent<DogActivities>();
+        }
         Death();
         if (activeEffects.Count != 0)
         {
@@ -122,21 +187,35 @@ public class Dog : Animal
             Debug.LogError("I think the daynightCycle is nonexistant");
         }
 
+        if (poopTimer)
+        {
+            poopTimePassed += Time.deltaTime;
+            if (poopTimePassed > 60f)
+            {
+                Hygiene -= 15f;
+                poopTimePassed = 0f;
+                poopTimer = false;
+            }
+        }
+
         Health = CalculateHealth();
         Behaviour = CalculateBehaviour();
         Look = CalculateLook();
         ClampStats();
     }
 
-
+    
     protected override void Death()
     {
         if (Health <= 0)
-        {
+        { 
+            roomManager.DogsKilled += 1;
+            Destroy(this.transform.parent.gameObject);
         }
     }
     protected override void NeedCheck()
     {
+        
         if (Nutrition <= 33f)
         {
             activeEffects[needEffectIndex[0]].ActivateEffect = true;
@@ -184,7 +263,7 @@ public class Dog : Animal
     {
         if (dayNightCycle.timeActive)
         {
-            if ((int) dayNightCycle.timePassedMinutes > lastMinute)
+            if ((int) dayNightCycle.timePassedMinutes > dayNightCycle.LastMinute)
             {
                 ExtraDrainageNutrition = 0;
                 ExtraDrainageHygiene = 0;
@@ -192,10 +271,23 @@ public class Dog : Animal
                 ExtraDrainageHealth = 0;
                 ExtraDrainageBehaviour = 0;
                 ExtraDrainageLook = 0;
+                dirtyChance = 0;
+                sickChance = 0;
+                ungroomedChance = 0;
+                MaxHealthDrainage = 0f;
+                MaxBehaviourDrainage = 0f;
+                MaxLookDrainage = 0f;
+
                 foreach (StatusEffect effect in activeEffects)
                 {
                     if (effect.ActivateEffect)
                     {
+                        if (effect.chanceEffect)
+                        {
+                            dirtyChance += effect.chanceDirty;
+                            sickChance += effect.chanceSick;
+                            ungroomedChance += effect.chanceUngroomed;
+                        }
                         if (effect.drainageAdd)
                         {
                             switch (effect.typeDrainage)
@@ -288,7 +380,7 @@ public class Dog : Animal
                             effect.hasRemoved = true;
                         }
 
-                        if (effect.removeFromMax)
+                        /*if (effect.removeFromMax)
                         {
                             switch (effect.typeMaxRemove)
                             {
@@ -296,13 +388,16 @@ public class Dog : Animal
                                     Debug.Log("type MAX REMOVE had an error");
                                     break;
                                 case (1):
-                                    MaxHealthDrainage = 100f - effect.typeMaxRemove;
+                                    MaxHealthDrainage -= effect.typeMaxRemove;
+                                    Debug.Log("health max " + MaxHealthDrainage);
                                     break;
                                 case (2):
-                                    MaxBehaviourDrainage = 100f - effect.typeMaxRemove;
+                                    MaxBehaviourDrainage -= effect.typeMaxRemove;
+                                    Debug.Log("Behaviour max " + MaxBehaviourDrainage);
                                     break;
                                 case (3):
-                                    MaxLookDrainage = 100f - effect.typeMaxRemove;
+                                    MaxLookDrainage -= effect.typeMaxRemove;
+                                    Debug.Log("Look max " + MaxLookDrainage);
                                     break;
                                 case (0):
                                     break;
@@ -313,11 +408,10 @@ public class Dog : Animal
                             MaxHealthDrainage = 100f;
                             MaxBehaviourDrainage = 100f;
                             MaxLookDrainage = 100f;
-                        }
+                        }*/
                     }
                 }
-
-                lastMinute = (int) dayNightCycle.timePassedMinutes;
+                
                 Nutrition -= StatManager.drainageNutrition + ExtraDrainageNutrition;
                 Hygiene -= StatManager.drainageHygiene + ExtraDrainageHygiene;
                 Socialization -= StatManager.drainageSocialization + ExtraDrainageSocialization;
@@ -337,24 +431,16 @@ public class Dog : Animal
                 float random = Random.Range(1f, 100f);
                 if (timeStamp == dayNightCycle.minutesInADay)
                 {
-                    foreach (StatusEffect statusEffect in dailyStatusEffects)
+                    foreach (StatusEffect statusEffect in activeEffects)
                     {
-
-                        switch (statusEffect.name)
-                        {
-                            case("Sick"):
-                                if(random > sickChance)
-                                    activeEffects.Add(statusEffect);
-                                break;
-                            case("Dirty"):
-                                if(random > dirtyChance)
-                                    activeEffects.Add(statusEffect);
-                                break;
-                            case("Ungroomed"):
-                                if(random > ungroomedChance)
-                                    activeEffects.Add(statusEffect);
-                                break;
-                        }
+                        if (statusEffect.name == "Sick" && random > sickChance)
+                            statusEffect.ActivateEffect = true;
+                        if (statusEffect.name == "Dirty" && random > dirtyChance)
+                            statusEffect.ActivateEffect = true;
+                        if (statusEffect.name == "Ungroomed" && random > ungroomedChance)
+                            statusEffect.ActivateEffect = true;
+                        
+                        
                     }
                 }
             }

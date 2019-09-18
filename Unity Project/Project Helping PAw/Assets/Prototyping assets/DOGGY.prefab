@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1906221755839637091}
   - component: {fileID: 8044751067690998776}
-  - component: {fileID: 4006776635688343490}
-  - component: {fileID: 8688846023756095883}
+  - component: {fileID: 1580685434451055225}
   m_Layer: 0
   m_Name: DOGGY
-  m_TagString: Untagged
+  m_TagString: Dog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3183793486422316144}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.81398886, z: -0, w: 0.5808806}
   m_LocalPosition: {x: 0.3207245, y: 0.34841537, z: -0.044391632}
   m_LocalScale: {x: 0.48584, y: 0.48584, z: 0.48584}
   m_Children:
   - {fileID: 8184227292810632534}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 108.975006, z: 0}
 --- !u!111 &8044751067690998776
 Animation:
   m_ObjectHideFlags: 0
@@ -49,30 +48,7 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &4006776635688343490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3183793486422316144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ed514873f6c87a49832db62895497e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Homeless: 1
-  Sheltered: 0
-  Adopted: 0
-  activeEffects: []
-  Health: 0
-  Behaviour: 0
-  Look: 0
-  Nutrition: 0
-  Hygiene: 0
-  Socialization: 0
-  dailyStatusEffects: []
---- !u!54 &8688846023756095883
+--- !u!54 &1580685434451055225
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,9 +76,10 @@ GameObject:
   - component: {fileID: 7341950008683173310}
   - component: {fileID: 3184425615627944892}
   - component: {fileID: 6737657344956962922}
+  - component: {fileID: 153225028936409304}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Dog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,13 +91,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3509053826177985589}
-  m_LocalRotation: {x: -0.4952473, y: 0.50470793, z: 0.50470793, w: 0.4952473}
-  m_LocalPosition: {x: -0.33237755, y: 0.8205864, z: 0}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: -0.33237755, y: 0.715, z: -0.07}
   m_LocalScale: {x: 0.34899142, y: 0.34899142, z: 0.88}
   m_Children: []
   m_Father: {fileID: 1906221755839637091}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 91.08401}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!33 &7341950008683173310
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -181,3 +158,35 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -462981019419857548, guid: c910034609b042645a07463be69df758, type: 3}
+--- !u!114 &153225028936409304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3509053826177985589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed514873f6c87a49832db62895497e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Homeless: 1
+  Sheltered: 0
+  Adopted: 0
+  activeEffects: []
+  sickChance: 0
+  dirtyChance: 0
+  ungroomedChance: 0
+  Health: 0
+  Behaviour: 0
+  Look: 0
+  Nutrition: 0
+  Hygiene: 0
+  Socialization: 0
+  ExtraDrainageHealth: 0
+  dailyStatusEffects: []
+  currentActiveEffects: []
+  room: {fileID: 0}
+  poopTimer: 0
+  poopTimePassed: 0
+  needBarEffects: []

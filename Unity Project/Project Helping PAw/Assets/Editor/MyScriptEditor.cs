@@ -16,7 +16,12 @@ using UnityEngine;
             myScript.straightRemove = GUILayout.Toggle(myScript.straightRemove, "Remove points");
             myScript.removeFromMax = GUILayout.Toggle(myScript.removeFromMax, "Remove from max amount");
 
-
+            if (myScript.chanceEffect)
+            {
+                myScript.chanceDirty = EditorGUILayout.Slider("chanceDirt: ", myScript.chanceDirty, 1f, 100f);
+                myScript.chanceSick = EditorGUILayout.Slider("chanceSick: ", myScript.chanceSick, 1f, 100f);
+                myScript.chanceUngroomed = EditorGUILayout.Slider("chanceUngroomed: ", myScript.chanceUngroomed, 1f, 100f);
+            }
             if (myScript.drainageAdd)
             {
                 myScript.drainageAmount = EditorGUILayout.Slider("Drainage amount:", myScript.drainageAmount, 1f, 100f);

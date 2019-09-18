@@ -17,6 +17,9 @@ public class SpawnDog : MonoBehaviour
     private int lastMinute;
     private List<bool> spawnedPerTimeStamp;
     private int lastDay;
+    private RoomManager roomManager;
+
+    private bool initialSpawn = false;
     
     void Start()
     {
@@ -26,8 +29,8 @@ public class SpawnDog : MonoBehaviour
         timeStampsToCheck = new List<float>();
         spawnedPerTimeStamp = new List<bool>();
         lastDay = 0;
-        
-
+        roomManager = gameManager.GetComponent<RoomManager>();
+    
         if (dailyCheck != null)
         {
             for (int i = 1; i <= spawnRatePerDay; i++)
@@ -40,13 +43,29 @@ public class SpawnDog : MonoBehaviour
                 spawnedPerTimeStamp.Add(false);
             }
         }
-        
-
         timestamps = timeStampsToCheck;
+
+        
     } 
 
     void Update()
     {
+        if (!initialSpawn)
+        {
+            Vector3 spawnLocation = new Vector3(Random.Range(colliderBox.transform.position.x-colliderBox.size.x*0.5f,colliderBox.transform.position.x-colliderBox.size.x*0.5f+colliderBox.size.x),Random.Range(colliderBox.transform.position.y-colliderBox.size.y*0.5f,colliderBox.transform.position.y-colliderBox.size.y*0.5f+colliderBox.size.y),Random.Range(colliderBox.transform.position.z-colliderBox.size.z*0.5f,colliderBox.transform.position.z-colliderBox.size.z*0.5f+colliderBox.size.z));
+            GameObject spawnedDog = Instantiate(prefab_dog, spawnLocation, prefab_dog.transform.rotation);
+            roomManager.dogs.Add(spawnedDog);
+            initialSpawn = true;
+        }
+        if (roomManager.developerMode)
+        {
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                Vector3 spawnLocation = new Vector3(Random.Range(colliderBox.transform.position.x-colliderBox.size.x*0.5f,colliderBox.transform.position.x-colliderBox.size.x*0.5f+colliderBox.size.x),Random.Range(colliderBox.transform.position.y-colliderBox.size.y*0.5f,colliderBox.transform.position.y-colliderBox.size.y*0.5f+colliderBox.size.y),Random.Range(colliderBox.transform.position.z-colliderBox.size.z*0.5f,colliderBox.transform.position.z-colliderBox.size.z*0.5f+colliderBox.size.z));
+                GameObject spawnedDog = Instantiate(prefab_dog, spawnLocation, prefab_dog.transform.rotation);
+                roomManager.dogs.Add(spawnedDog);
+            }
+        }
         if (dayCycle.timeActive)
         {
             if ((int)dayCycle.DaysSinceStart > lastDay)
@@ -63,8 +82,9 @@ public class SpawnDog : MonoBehaviour
                 if (timeStampsToCheck[i] == dayCycle.timePassedMinPerDay && !spawnedPerTimeStamp[i])
                 {
                     spawnedPerTimeStamp[i] = true;
-                    Vector3 spawnLocation = new Vector3(Random.Range(colliderBox.transform.position.x,colliderBox.transform.position.x+colliderBox.size.x),Random.Range(colliderBox.transform.position.y,colliderBox.transform.position.y+colliderBox.size.y),Random.Range(colliderBox.transform.position.z,colliderBox.transform.position.z+colliderBox.size.z));
-                    Instantiate(prefab_dog, spawnLocation, Quaternion.identity);
+                    Vector3 spawnLocation = new Vector3(Random.Range(colliderBox.transform.position.x-colliderBox.size.x*0.5f,colliderBox.transform.position.x-colliderBox.size.x*0.5f+colliderBox.size.x),Random.Range(colliderBox.transform.position.y-colliderBox.size.y*0.5f,colliderBox.transform.position.y-colliderBox.size.y*0.5f+colliderBox.size.y),Random.Range(colliderBox.transform.position.z-colliderBox.size.z*0.5f,colliderBox.transform.position.z-colliderBox.size.z*0.5f+colliderBox.size.z));
+                    GameObject spawnedDog = Instantiate(prefab_dog, spawnLocation, prefab_dog.transform.rotation);
+                    roomManager.dogs.Add(spawnedDog);
                 }
             }
         }

@@ -10,6 +10,10 @@ public class StatusEffect : MonoBehaviour
     public bool chanceEffect;
     public bool timed;
 
+    public float chanceSick;
+    public float chanceDirty;
+    public float chanceUngroomed;
+
     public bool ActivateEffect = false;
 
     public bool drainageAdd;

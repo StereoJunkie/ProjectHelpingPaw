@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Object = System.Object;
+using Random = System.Random;
 
 public class createRooms : MonoBehaviour
 {
     private int roomAmount;
-    private GameObject room_Prefab;
+    private List<GameObject> room_Prefab;
     private GameObject outside_Prefab;
     private BoxCollider roomCollider;
     private RoomManager roomManager;
@@ -18,8 +19,8 @@ public class createRooms : MonoBehaviour
         roomManager = GetComponent<RoomManager>();
         roomAmount = roomManager.roomAmount;
         outside_Prefab = roomManager.outside_Prefab;
-        room_Prefab = roomManager.prefab_Room;
-        roomCollider = room_Prefab.GetComponent<BoxCollider>();
+        room_Prefab = roomManager.prefab_Rooms;
+        roomCollider = room_Prefab[0].GetComponent<BoxCollider>();
         generateRooms();
     }
 
@@ -33,20 +34,22 @@ public class createRooms : MonoBehaviour
             {
                 if (j == 0)
                 {
-                    spawnedRoom = Instantiate(room_Prefab, bottomLeftest, Quaternion.identity);
+                    int random = UnityEngine.Random.Range(0, 3);
+                    spawnedRoom = Instantiate(room_Prefab[random], bottomLeftest, room_Prefab[random].transform.rotation);
                     spawnedRoom.tag = "Room";
-                    roomManager.rooms[amountRoomSpawned] = spawnedRoom;
+                    roomManager.rooms.Add(spawnedRoom);
                     amountRoomSpawned++;
                 }
                 else
                 {
                     if (amountRoomSpawned < roomAmount)
                     {
+                        int random = UnityEngine.Random.Range(0, 3);
                         Vector3 spawnLocation =
                             bottomLeftest + new Vector3(-roomCollider.size.x * i, 0, -roomCollider.size.z*i);
-                        spawnedRoom = Instantiate(room_Prefab, spawnLocation, Quaternion.identity);
+                        spawnedRoom = Instantiate(room_Prefab[random], spawnLocation, room_Prefab[random].transform.rotation);
                         spawnedRoom.tag = "Room";
-                        roomManager.rooms[amountRoomSpawned] = spawnedRoom;
+                        roomManager.rooms.Add(spawnedRoom);
                     }
                     amountRoomSpawned++;
                 }

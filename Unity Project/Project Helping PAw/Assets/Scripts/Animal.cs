@@ -10,17 +10,17 @@ public abstract class Animal : MonoBehaviour
     public bool Adopted;
     public List<StatusEffect> activeEffects;
 
-    protected float sickChance;
-    protected float dirtyChance;
-    protected float ungroomedChance;
+    public float sickChance;
+    public float dirtyChance;
+    public float ungroomedChance;
     
-    [SerializeField] protected float Health;
+    [SerializeField] public float Health;
     [SerializeField] protected float Behaviour;
     [SerializeField] protected float Look;
     
-    [SerializeField] protected float Nutrition;
-    [SerializeField] protected float Hygiene;
-    [SerializeField] protected float Socialization;
+    [SerializeField] public float Nutrition;
+    [SerializeField] public float Hygiene;
+    [SerializeField] public float Socialization;
 
     protected GameObject gameManager;
 
@@ -31,7 +31,7 @@ public abstract class Animal : MonoBehaviour
     protected float ExtraDrainageNutrition;
     protected float ExtraDrainageHygiene;
     protected float ExtraDrainageSocialization;
-    protected float ExtraDrainageHealth;
+    public float ExtraDrainageHealth;
     protected float ExtraDrainageLook;
     protected float ExtraDrainageBehaviour;
 

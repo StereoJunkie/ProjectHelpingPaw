@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Room
+  - Dog
+  - Hygiene
+  - Nutrition
+  - Socialization
   layers:
   - Default
   - TransparentFX

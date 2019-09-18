@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
-    [SerializeField] public GameObject prefab_Room;
+    [SerializeField] public List<GameObject> prefab_Rooms;
     [SerializeField] public GameObject outside_Prefab;
     [Range(1,10)]
     [SerializeField] public int roomAmount = 1;
 
     [SerializeField] public bool developerMode = false;
     [SerializeField] public bool panAble = true;
-    [SerializeField] public GameObject[] rooms; 
+    [SerializeField] public int DogsAdopted = 0;
+    [SerializeField] public int DogsKilled = 0;
+    [SerializeField] public List<GameObject> rooms;
+    [SerializeField] public List<GameObject> dogs;
     private createRooms _createRooms;
     
-    // Start is called before the first frame update
     void Start()
     {
          _createRooms = gameObject.AddComponent<createRooms>();
-         rooms = new GameObject[roomAmount];
+         rooms = new List<GameObject>();
+         dogs = new List<GameObject>();
     }
     
     private void OnGUI()
