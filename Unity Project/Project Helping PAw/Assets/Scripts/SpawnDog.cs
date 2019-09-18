@@ -18,6 +18,7 @@ public class SpawnDog : MonoBehaviour
     private List<bool> spawnedPerTimeStamp;
     private int lastDay;
     private RoomManager roomManager;
+    [SerializeField] private GameObject outside;
 
     private bool initialSpawn = false;
     
@@ -55,6 +56,7 @@ public class SpawnDog : MonoBehaviour
             Vector3 spawnLocation = new Vector3(Random.Range(colliderBox.transform.position.x-colliderBox.size.x*0.5f,colliderBox.transform.position.x-colliderBox.size.x*0.5f+colliderBox.size.x),Random.Range(colliderBox.transform.position.y-colliderBox.size.y*0.5f,colliderBox.transform.position.y-colliderBox.size.y*0.5f+colliderBox.size.y),Random.Range(colliderBox.transform.position.z-colliderBox.size.z*0.5f,colliderBox.transform.position.z-colliderBox.size.z*0.5f+colliderBox.size.z));
             GameObject spawnedDog = Instantiate(prefab_dog, spawnLocation, prefab_dog.transform.rotation);
             roomManager.dogs.Add(spawnedDog);
+            spawnedDog.transform.parent = outside.transform;
             initialSpawn = true;
         }
         if (roomManager.developerMode)

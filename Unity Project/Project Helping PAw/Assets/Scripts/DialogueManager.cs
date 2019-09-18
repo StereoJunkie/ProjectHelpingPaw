@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            if (Input.GetTouch(0).phase == TouchPhase.Began && Input.GetTouch(0).deltaTime > 0.2f)
             {
                 DisplayNextSentence();
             }

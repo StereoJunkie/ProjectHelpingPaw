@@ -16,7 +16,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] public List<GameObject> rooms;
     [SerializeField] public List<GameObject> dogs;
     private createRooms _createRooms;
-    
+
     void Start()
     {
          _createRooms = gameObject.AddComponent<createRooms>();

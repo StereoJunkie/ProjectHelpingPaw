@@ -14,6 +14,7 @@ public class DogActivities : MonoBehaviour
 
     private GameObject roomObject;
     private Room highlightedRoom;
+    [SerializeField] private DialogueOnStart dialogue;
     [SerializeField] private Dog dog;
     private bool feed = false;
     private bool walk = false;
@@ -63,26 +64,27 @@ public class DogActivities : MonoBehaviour
             activityTimer = false;
             volunteers.VolunteersInUse -= 1;
         }
+
         if (activityTimer)
         {
             timePassed += Time.deltaTime;
         }
 
         roomObject = selection.highlightRoom;
-        if(roomObject!=null)
+        if (roomObject != null)
         {
             highlightedRoom = roomObject.GetComponent<Room>();
             if (highlightedRoom != null)
             {
-                if(highlightedRoom.dog != null)
+                if (highlightedRoom.dog != null)
                     dog = highlightedRoom.dog.GetComponentInChildren<Dog>();
-
             }
             else
             {
                 Debug.Log("no highlighted room script ");
             }
         }
+
         if (volunteerCounter != null && volunteers != null)
         {
             volunteerCounter.text = volunteers.VolunteersInUse + "/" + volunteers.AmountVolunteers;
@@ -91,7 +93,7 @@ public class DogActivities : MonoBehaviour
 
     public void Feed()
     {
-        if (dog != null)
+        if (dog != null && !dialogue.OpenedActivityPanel)
         {
             if (volunteers.VolunteersInUse < volunteers.AmountVolunteers)
             {
@@ -105,7 +107,7 @@ public class DogActivities : MonoBehaviour
 
     public void Walk()
     {
-        if (dog != null)
+        if (dog != null && !dialogue.hasEnded)
         {
             if (volunteers.VolunteersInUse < volunteers.AmountVolunteers)
             {
@@ -122,7 +124,7 @@ public class DogActivities : MonoBehaviour
 
     public void Wash()
     {
-        if (dog != null)
+        if (dog != null && !dialogue.hasEnded)
         {
             if (volunteers.VolunteersInUse < volunteers.AmountVolunteers)
             {
@@ -144,7 +146,7 @@ public class DogActivities : MonoBehaviour
 
     public void Groom()
     {
-        if (dog != null)
+        if (dog != null && !dialogue.hasEnded)
         {
             if (volunteers.VolunteersInUse < volunteers.AmountVolunteers)
             {
@@ -161,12 +163,11 @@ public class DogActivities : MonoBehaviour
                 volunteers.VolunteersInUse += 1;
             }
         }
-
     }
 
     public void MedicalCheckup()
     {
-        if (dog != null)
+        if (dog != null && !dialogue.hasEnded)
         {
             if (volunteers.VolunteersInUse < volunteers.AmountVolunteers)
             {
@@ -186,7 +187,7 @@ public class DogActivities : MonoBehaviour
 
     public void Euthanize()
     {
-        if (dog != null)
+        if (dog != null && !dialogue.hasEnded)
         {
             dog.Health = 0f;
             timePassed = 0f;

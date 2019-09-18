@@ -894,6 +894,7 @@ MonoBehaviour:
   highlightDog: {fileID: 0}
   animator: {fileID: 515848428}
   Selecting: 1
+  outside: {fileID: 4006340815015734770}
 --- !u!4 &448279373
 Transform:
   m_ObjectHideFlags: 0
@@ -1047,6 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7fc2f0e74c38b4d8361879ec486100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue: {fileID: 1914473556}
   dog: {fileID: 0}
 --- !u!1 &701040244
 GameObject:
@@ -1097,6 +1099,7 @@ MonoBehaviour:
   prefab_dog: {fileID: 3183793486422316144, guid: de8aaaea0a4571f44af6ad6276ca8cfa,
     type: 3}
   timestamps: []
+  outside: {fileID: 4006340815015734770}
 --- !u!65 &701040247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3137,8 +3140,8 @@ MonoBehaviour:
 
       We are going to take it nice and easy to ease you into it.'
     - Let's start by explaining the core concept. Your goal is to make sure as many
-      dogs get adopted!
-    - 'Start by clicking on one of the homeless dogs to adopt them. '
+      dogs as possible get adopted!
+    - 'Start by clicking on the homeless dog that is waiting for you to shelter it. '
 --- !u!114 &1914473556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3177,7 +3180,7 @@ MonoBehaviour:
     Name: Tutor John Paw
     Sentences:
     - Great job, you sheltered your first dog!
-    - Click on the room, to inspect the dog and see what his needs are.
+    - Click on the room, to inspect the dog and see what its needs are.
 --- !u!114 &1914473558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3211,11 +3214,11 @@ MonoBehaviour:
   dialogue:
     Name: Tutor John Paw
     Sentences:
-    - Here you have a list of activities. These influence the need of the dog.
+    - Here you have a list of activities. These influence the needs of the dog.
     - At the bottom you see how many volunteers that you have used. Make sure to manage
-      this properly!
+      them properly!
     - 'CAREFUL! there is also the "Euthanize" button. '
-    - 'Use this ONLY when you feel like the dog has had enough oppotunities to get
+    - 'Use this ONLY when you feel like the dog has had enough opportunities to get
       adopted. '
     - The dogs on the street deserve a chance to find their forever home too!
     - Swipe down to close the panel.
@@ -3235,12 +3238,12 @@ MonoBehaviour:
     Name: Tutor John Paw
     Sentences:
     - 'That was easier than you thought wasn''t it? '
-    - Adoption happens everyday, keep their needs up. The better the condition the
+    - Adoption happens every day, keep their needs up. The better the condition, the
       more chance of adoption.
-    - One last thing before I leave you to it. Don't put to many dogs down but also
+    - One last thing before I leave you to it. Don't put too many dogs down but also
       don't let them starve outside!
-    - It is vital for us to keep them alive and sent to their forever homes!
-    - That didn't sounds to grim did it? Ah well, goodluck and give it your all!
+    - It is vital for us to keep them alive and to send them to their forever homes!
+    - That didn't sounds to grim did it? Ah well, good luck and give it your all!
 --- !u!1 &1915984402
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,12 +32,16 @@ public class SelectedManager : MonoBehaviour
     private bool firstClickOnRoom = false;
     private DialogueOnStart dialogue;
 
+    [SerializeField] private GameObject outside;
+    private Vector3 outsideOrigin;
+
     private void Start()
     {
         dialogue = FindObjectOfType<DialogueOnStart>();
         roomAssign = GetComponent<roomAssigner>();
         roomManager = FindObjectOfType<RoomManager>();
         mainCamera = Camera.main;
+        outsideOrigin = outside.transform.position;
         mainCameraOrigin = mainCamera.transform.position;
         prefabCollider = roomManager.prefab_Rooms[0].GetComponent<BoxCollider>();
         if (prefabCollider != null)
@@ -58,7 +62,7 @@ public class SelectedManager : MonoBehaviour
                 Select();
                 if (highlightRoom != null && mainCamera != null)
                 {
-                    
+                    roomManager.panAble = false;
                     positionReseted = false;
                     highlightedRoomCenter = highlightRoom.transform.position + centerOffset;
                     if (!firstClickOnRoom && Vector3.Distance(mainCamera.transform.position,highlightRoom.transform.position + centerOffset) < 4)
@@ -86,6 +90,7 @@ public class SelectedManager : MonoBehaviour
                                         tempRoom.spawnPosition.z), roomMoveSpeed * Time.deltaTime);
                         }
                     }
+                    outside.transform.position = Vector3.Lerp(outside.transform.position,new Vector3(outsideOrigin.x,outsideOrigin.y - 20,outsideOrigin.z),roomMoveSpeed*Time.deltaTime);
                 }
                 else if (highlightRoom == null)
                 {
@@ -98,7 +103,7 @@ public class SelectedManager : MonoBehaviour
                             positionReseted = true;
                         }
                     }
-
+                    roomManager.panAble = true;
                     tempVector = Vector2.Lerp(new Vector2(mainCamera.orthographicSize, mainCamera.orthographicSize),
                         new Vector2(originalZoom, originalZoom), zoomSpeed * Time.deltaTime);
                     mainCamera.orthographicSize = tempVector.x;
@@ -114,6 +119,7 @@ public class SelectedManager : MonoBehaviour
                                     roomMoveSpeed * Time.deltaTime);
                         }
                     }
+                    outside.transform.position = Vector3.Lerp(outside.transform.position,outsideOrigin,roomMoveSpeed*Time.deltaTime);
                 }
             }
         }

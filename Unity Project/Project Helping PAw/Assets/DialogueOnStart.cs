@@ -13,6 +13,7 @@ public class DialogueOnStart : MonoBehaviour
     public bool ZoomIntoRoom;
     public bool OpenedActivityPanel;
     public bool EndTutorial;
+    [SerializeField] public bool hasEnded;
 
     private void Start()
     {
@@ -34,26 +35,28 @@ public class DialogueOnStart : MonoBehaviour
             played = true;
         }
 
-        if (ClickedDog)
+        if (ClickedDog && played)
         {
             startingText[1].TriggerDialogue();
             ClickedDog = false;
         }
 
-        if (ZoomIntoRoom)
+        if (ZoomIntoRoom && !ClickedDog)
         {
             startingText[2].TriggerDialogue();
             ZoomIntoRoom = false;
         }
 
-        if (OpenedActivityPanel)
+        if (OpenedActivityPanel && !ZoomIntoRoom)
         {
             startingText[3].TriggerDialogue();
             OpenedActivityPanel = false;
+            hasEnded = true;
         }
 
-        if (EndTutorial)
+        if (EndTutorial && !OpenedActivityPanel)
         {
+            hasEnded = false;
             startingText[4].TriggerDialogue();
             EndTutorial = false;
         }
