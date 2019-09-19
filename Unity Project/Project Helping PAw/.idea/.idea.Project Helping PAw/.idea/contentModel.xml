@@ -8,10 +8,11 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="DialogueOnStart.cs" t="Include" />
+        <e p="ClockTurn.cs" t="Include" />
         <e p="Editor" t="Include">
           <e p="MyScriptEditor.cs" t="Include" />
         </e>
+        <e p="EndCondition.cs" t="Include" />
         <e p="NavMeshComponents" t="Include">
           <e p="Editor" t="Include">
             <e p="NavMeshComponentsGUIUtility.cs" t="Include" />
@@ -40,11 +41,13 @@
           <e p="DayAndNightCycle.cs" t="Include" />
           <e p="Dialogue.cs" t="Include" />
           <e p="DialogueManager.cs" t="Include" />
+          <e p="DialogueOnStart.cs" t="Include" />
           <e p="DialogueTrigger.cs" t="Include" />
           <e p="Dog.cs" t="Include" />
           <e p="DogActivities.cs" t="Include" />
           <e p="fpsDisplay.cs" t="Include" />
           <e p="hightlightStats.cs" t="Include" />
+          <e p="MoveBackground.cs" t="Include" />
           <e p="NeedZoneEffects.cs" t="Include" />
           <e p="Room.cs" t="Include" />
           <e p="roomAssigner.cs" t="Include" />

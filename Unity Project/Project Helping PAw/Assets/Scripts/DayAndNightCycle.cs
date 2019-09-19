@@ -7,7 +7,7 @@ public class DayAndNightCycle : MonoBehaviour
 {
     [Range(1f,60f)][SerializeField] public int minutesInADay;
     [SerializeField] public float DaysSinceStart;
-    [SerializeField] private float timePassedSeconds;
+    [SerializeField] public float timePassedSeconds;
     [SerializeField] public float timePassedMinutes;
     public int timePassedMinPerDay;
     public bool timeActive;

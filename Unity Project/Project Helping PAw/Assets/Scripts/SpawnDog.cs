@@ -12,8 +12,8 @@ public class SpawnDog : MonoBehaviour
     private BoxCollider colliderBox;
     private DayAndNightCycle dayCycle;
     private DailyStatusEffectCheck dailyCheck;
-    private int timesToCheckPerDay;
-    private List<float> timeStampsToCheck;
+    private float timesToCheckPerDay;
+    [SerializeField] private List<float> timeStampsToCheck;
     private int lastMinute;
     private List<bool> spawnedPerTimeStamp;
     private int lastDay;
@@ -65,6 +65,7 @@ public class SpawnDog : MonoBehaviour
             {
                 Vector3 spawnLocation = new Vector3(Random.Range(colliderBox.transform.position.x-colliderBox.size.x*0.5f,colliderBox.transform.position.x-colliderBox.size.x*0.5f+colliderBox.size.x),Random.Range(colliderBox.transform.position.y-colliderBox.size.y*0.5f,colliderBox.transform.position.y-colliderBox.size.y*0.5f+colliderBox.size.y),Random.Range(colliderBox.transform.position.z-colliderBox.size.z*0.5f,colliderBox.transform.position.z-colliderBox.size.z*0.5f+colliderBox.size.z));
                 GameObject spawnedDog = Instantiate(prefab_dog, spawnLocation, prefab_dog.transform.rotation);
+                spawnedDog.transform.parent = outside.transform;
                 roomManager.dogs.Add(spawnedDog);
             }
         }
@@ -86,6 +87,7 @@ public class SpawnDog : MonoBehaviour
                     spawnedPerTimeStamp[i] = true;
                     Vector3 spawnLocation = new Vector3(Random.Range(colliderBox.transform.position.x-colliderBox.size.x*0.5f,colliderBox.transform.position.x-colliderBox.size.x*0.5f+colliderBox.size.x),Random.Range(colliderBox.transform.position.y-colliderBox.size.y*0.5f,colliderBox.transform.position.y-colliderBox.size.y*0.5f+colliderBox.size.y),Random.Range(colliderBox.transform.position.z-colliderBox.size.z*0.5f,colliderBox.transform.position.z-colliderBox.size.z*0.5f+colliderBox.size.z));
                     GameObject spawnedDog = Instantiate(prefab_dog, spawnLocation, prefab_dog.transform.rotation);
+                    spawnedDog.transform.parent = outside.transform;
                     roomManager.dogs.Add(spawnedDog);
                 }
             }

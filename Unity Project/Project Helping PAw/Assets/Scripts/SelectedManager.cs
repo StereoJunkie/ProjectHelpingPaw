@@ -160,6 +160,7 @@ public class SelectedManager : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("hjdjgjdajgsj");
                     highlightRoom = null;
                     highlightDog = null;
                 }

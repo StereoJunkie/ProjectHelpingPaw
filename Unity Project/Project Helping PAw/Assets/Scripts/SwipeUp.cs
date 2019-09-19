@@ -7,6 +7,7 @@ using UnityEngine;
 public class SwipeUp : MonoBehaviour
 {
     [SerializeField] private SelectedManager selectedManager;
+    [SerializeField] private RoomManager roomManager;
     
     private Vector2 startPosition;
     private Vector2 endPosition;
@@ -17,7 +18,7 @@ public class SwipeUp : MonoBehaviour
     private bool firstSwipe;
     private DialogueOnStart dialogue;
     private bool swipeOut;
-    
+
     void Start()
     {
         dialogue = FindObjectOfType<DialogueOnStart>();
@@ -30,7 +31,7 @@ public class SwipeUp : MonoBehaviour
     {
         if (selectedManager.highlightRoom != null)
         {
-            wentDown = false;
+            animator.SetBool("NoHighlight", false);
             if (Input.touchCount > 0 && Input.touchCount < 2)
             {
                 if (Input.GetTouch(0).phase == TouchPhase.Began)
@@ -51,10 +52,9 @@ public class SwipeUp : MonoBehaviour
                 MoveLogic();
             }
         }
-        else if(!wentDown)
+        else
         {
-            GoDown();
-            
+            animator.SetBool("NoHighlight", true);
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -64,7 +64,10 @@ public class SwipeUp : MonoBehaviour
     
     private void GoUp()
     {
+        animator.ResetTrigger("GoUp 0");
+        animator.ResetTrigger("GoDown 0");
         animator.SetTrigger("GoUp 0");
+        roomManager.panAble = false;
         
     }
 
@@ -88,20 +91,18 @@ public class SwipeUp : MonoBehaviour
 
     private void GoDown()
     {
-        wentDown = true;
+        animator.ResetTrigger("GoUp 0");
+        animator.ResetTrigger("GoDown 0");
         animator.SetTrigger("GoDown 0");
+        roomManager.panAble = true;
     }
 
     private void MoveLogic()
     {
         if ((endPosition - startPosition).magnitude > 25)
         {
-            print((endPosition - startPosition).magnitude);
-            print((endPosition - startPosition));
             startToEndVector = (endPosition - startPosition).normalized;
             angle = Math.Abs(Vector2.Dot(startToEndVector, Vector2.down));
-            Debug.Log(angle);
-            Debug.Log(startToEndVector);
             if (angle >= 0.7071f)
             {
                 if (startToEndVector.y > 0)

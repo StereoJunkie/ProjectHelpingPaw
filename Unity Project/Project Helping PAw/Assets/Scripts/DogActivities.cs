@@ -64,11 +64,8 @@ public class DogActivities : MonoBehaviour
             activityTimer = false;
             volunteers.VolunteersInUse -= 1;
         }
-
-        if (activityTimer)
-        {
+        if(volunteers.VolunteersInUse > 0)
             timePassed += Time.deltaTime;
-        }
 
         roomObject = selection.highlightRoom;
         if (roomObject != null)
