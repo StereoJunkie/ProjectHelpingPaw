@@ -90,10 +90,11 @@ public class DogActivities : MonoBehaviour
 
     public void Feed()
     {
-        if (dog != null && !dialogue.OpenedActivityPanel)
+        if (dog != null && !dialogue.hasEnded)
         {
             if (volunteers.VolunteersInUse < volunteers.AmountVolunteers)
             {
+                FindObjectOfType<SoundManager>().Play("Eating");
                 dog.Nutrition += 25f;
                 dog.poopTimer = true;
                 activityTimer = true;
@@ -108,6 +109,7 @@ public class DogActivities : MonoBehaviour
         {
             if (volunteers.VolunteersInUse < volunteers.AmountVolunteers)
             {
+                FindObjectOfType<SoundManager>().Play("Walking");
                 dog.poopTimer = false;
                 dog.poopTimePassed = 0f;
                 dog.dirtyChance += 10f;
@@ -125,6 +127,7 @@ public class DogActivities : MonoBehaviour
         {
             if (volunteers.VolunteersInUse < volunteers.AmountVolunteers)
             {
+                FindObjectOfType<SoundManager>().Play("Washing");
                 dog.Hygiene += 25f;
                 foreach (StatusEffect effect in dog.activeEffects)
                 {
@@ -147,11 +150,13 @@ public class DogActivities : MonoBehaviour
         {
             if (volunteers.VolunteersInUse < volunteers.AmountVolunteers)
             {
+                FindObjectOfType<SoundManager>().Play("Brushing");
                 foreach (StatusEffect effect in dog.activeEffects)
                 {
                     if (effect.name == "Ungroomed")
                     {
                         effect.ActivateEffect = false;
+                        dog.Hygiene += 10f;
                         break;
                     }
                 }
@@ -168,6 +173,7 @@ public class DogActivities : MonoBehaviour
         {
             if (volunteers.VolunteersInUse < volunteers.AmountVolunteers)
             {
+                FindObjectOfType<SoundManager>().Play("Checkup");
                 foreach (StatusEffect effect in dog.activeEffects)
                 {
                     if (effect.name == "Sick" || effect.name == "Wounded")

@@ -219,6 +219,7 @@ public class Dog : Animal
     {
         if (Health <= 0)
         { 
+            FindObjectOfType<SoundManager>().Play("Death");
             roomManager.DogsKilled += 1;
             Destroy(this.transform.parent.gameObject);
         }

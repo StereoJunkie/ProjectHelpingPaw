@@ -9,6 +9,7 @@ public class EndCondition1 : MonoBehaviour
     [SerializeField] private int amountAdoptedToLose;
     [SerializeField] private DialogueTrigger dialogueLose;
     private bool spawnedLoss = false;
+    private int clickCount = 0;
 
     void Update()
     {
@@ -26,13 +27,17 @@ public class EndCondition1 : MonoBehaviour
             {
                 if (Input.GetTouch(0).phase == TouchPhase.Began && Input.GetTouch(0).deltaTime > 0.2)
                 {
-                    SceneManager.LoadScene(0);
+                    clickCount += 1;
+                    if(clickCount >= 3)
+                        SceneManager.LoadScene(0);
                 }
             }
 
             if (Input.GetMouseButtonUp(0))
             {
-                SceneManager.LoadScene(0);
+                clickCount += 1;
+                if(clickCount >= 3)
+                    SceneManager.LoadScene(0);
             }
         }
 

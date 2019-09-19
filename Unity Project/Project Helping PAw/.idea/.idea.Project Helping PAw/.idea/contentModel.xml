@@ -8,7 +8,6 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="creditsButton.cs" t="Include" />
         <e p="Editor" t="Include">
           <e p="MyScriptEditor.cs" t="Include" />
         </e>
@@ -27,7 +26,6 @@
             <e p="NavMeshSurface.cs" t="Include" />
           </e>
         </e>
-        <e p="playButton.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="AsmdefDebug.cs" t="Include" />
         </e>
@@ -36,8 +34,11 @@
           <e p="AnimalStatManager.cs" t="Include" />
           <e p="BarValueChange.cs" t="Include" />
           <e p="CameraMovement.cs" t="Include" />
+          <e p="ClickSound.cs" t="Include" />
+          <e p="clickSoundIngame.cs" t="Include" />
           <e p="ClockTurn.cs" t="Include" />
           <e p="createRooms.cs" t="Include" />
+          <e p="creditsButton.cs" t="Include" />
           <e p="DailyStatusEffectCheck.cs" t="Include" />
           <e p="DayAndNightCycle.cs" t="Include" />
           <e p="Dialogue.cs" t="Include" />
@@ -52,10 +53,13 @@
           <e p="hightlightStats.cs" t="Include" />
           <e p="MoveBackground.cs" t="Include" />
           <e p="NeedZoneEffects.cs" t="Include" />
+          <e p="playButton.cs" t="Include" />
           <e p="Room.cs" t="Include" />
           <e p="roomAssigner.cs" t="Include" />
           <e p="RoomManager.cs" t="Include" />
           <e p="SelectedManager.cs" t="Include" />
+          <e p="Sound.cs" t="Include" />
+          <e p="SoundManager.cs" t="Include" />
           <e p="SpawnDog.cs" t="Include" />
           <e p="StatusEffect.cs" t="Include" />
           <e p="StatusManager.cs" t="Include" />

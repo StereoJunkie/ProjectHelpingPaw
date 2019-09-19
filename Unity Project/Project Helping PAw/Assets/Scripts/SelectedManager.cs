@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class SelectedManager : MonoBehaviour
 {
@@ -135,6 +136,8 @@ public class SelectedManager : MonoBehaviour
             {
                 tempTime += Time.deltaTime;
             }
+            
+                
 
             if (Input.GetMouseButtonUp(0) && tempTime < maxClickHold)
             {
@@ -146,9 +149,50 @@ public class SelectedManager : MonoBehaviour
                     if (selection != null && selection.CompareTag("Room"))
                     {
                         highlightRoom = selection;
+                        if (highlightRoom.GetComponent<Room>().dog != null)
+                        {
+                            int randomNumber = UnityEngine.Random.Range(0, 5);
+                            switch (randomNumber)
+                            {
+                                case 0:
+                                    FindObjectOfType<SoundManager>().Play("Bark1");
+                                    break;
+                                case 1:
+                                    FindObjectOfType<SoundManager>().Play("Bark2");
+                                    break;
+                                case 2:
+                                    FindObjectOfType<SoundManager>().Play("Bark3");
+                                    break;
+                                case 4:
+                                    FindObjectOfType<SoundManager>().Play("Bark4");
+                                    break;
+                                case 5:
+                                    FindObjectOfType<SoundManager>().Play("Bark5");
+                                    break;
+                            }
+                        }
                     }
                     if (selection != null && selection.CompareTag("Dog"))
                     {
+                        int randomNumber = UnityEngine.Random.Range(0, 5);
+                        switch (randomNumber)
+                        {
+                            case 0:
+                                FindObjectOfType<SoundManager>().Play("Whine1");
+                                break;
+                            case 1:
+                                FindObjectOfType<SoundManager>().Play("Whine2");
+                                break;
+                            case 2:
+                                FindObjectOfType<SoundManager>().Play("Whine3");
+                                break;
+                            case 4:
+                                FindObjectOfType<SoundManager>().Play("Whine4");
+                                break;
+                            case 5:
+                                FindObjectOfType<SoundManager>().Play("Whine5");
+                                break;
+                        }
                         highlightDog = selection;
                         roomAssign.highlightDog = highlightDog;
                         if (!firstClick)
@@ -160,7 +204,6 @@ public class SelectedManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("hjdjgjdajgsj");
                     highlightRoom = null;
                     highlightDog = null;
                 }
@@ -181,7 +224,8 @@ public class SelectedManager : MonoBehaviour
             {
                 tempTime += Time.deltaTime;
             }
-
+            
+            
             if (touch.deltaPosition.magnitude > 0)
                 touchMoved = true;
             
@@ -226,7 +270,7 @@ public class SelectedManager : MonoBehaviour
 
     private void OnGUI()
     {
-        if (roomManager.developerMode)
-            GUI.Label(new Rect(10, 40, 200, 200), "TOUCH TIME: " + tempTime);
+        if (roomManager.developerMode) ;
+        //GUI.Label(new Rect(10, 40, 200, 200), "TOUCH TIME: " + tempTime);
     }
 }

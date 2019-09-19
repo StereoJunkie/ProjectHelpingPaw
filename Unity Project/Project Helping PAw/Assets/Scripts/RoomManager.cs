@@ -28,7 +28,7 @@ public class RoomManager : MonoBehaviour
     {
         if (developerMode)
         {
-            GUI.Label(new Rect(10, 10, 200, 200), "Touch count: " + Input.touchCount);
+            //GUI.Label(new Rect(10, 10, 200, 200), "Touch count: " + Input.touchCount);
             
         }
     }

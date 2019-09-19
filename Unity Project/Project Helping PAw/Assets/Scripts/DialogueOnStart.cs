@@ -15,6 +15,7 @@ public class DialogueOnStart : MonoBehaviour
     public bool OpenedActivityPanel;
     public bool EndTutorial;
     [SerializeField] public bool hasEnded;
+    [SerializeField] private AudioSource soundtrack;
 
     private void Start()
     {
@@ -34,6 +35,12 @@ public class DialogueOnStart : MonoBehaviour
             }
 
             played = true;
+        }
+
+        if (SceneManager.GetActiveScene().name == "level2")
+        {
+            OpenedActivityPanel = true;
+            Debug.Log("Testttt");
         }
 
         if (SceneManager.GetActiveScene().name == "level1")
@@ -62,6 +69,7 @@ public class DialogueOnStart : MonoBehaviour
                 hasEnded = false;
                 startingText[4].TriggerDialogue();
                 EndTutorial = false;
+                soundtrack.Play();
             }
         }
     }
