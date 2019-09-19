@@ -26,6 +26,10 @@ public class DayAndNightCycle : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            timePassedSeconds += 60*3;
+        }
         if((int) timePassedMinutes > LastMinute)
             LastMinute = (int) timePassedMinutes;
         if (timeActive)
@@ -37,7 +41,7 @@ public class DayAndNightCycle : MonoBehaviour
         timePassedMinPerDay = (int)timePassedMinutes;
         if ((int) DaysSinceStart > previousDay)
         {
-            previousDay = (int) DaysSinceStart;
+            
             timePassedMinPerDay = 0;
         }
     }

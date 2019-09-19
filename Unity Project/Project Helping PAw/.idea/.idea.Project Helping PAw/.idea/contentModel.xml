@@ -8,11 +8,10 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="ClockTurn.cs" t="Include" />
+        <e p="creditsButton.cs" t="Include" />
         <e p="Editor" t="Include">
           <e p="MyScriptEditor.cs" t="Include" />
         </e>
-        <e p="EndCondition.cs" t="Include" />
         <e p="NavMeshComponents" t="Include">
           <e p="Editor" t="Include">
             <e p="NavMeshComponentsGUIUtility.cs" t="Include" />
@@ -28,6 +27,7 @@
             <e p="NavMeshSurface.cs" t="Include" />
           </e>
         </e>
+        <e p="playButton.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="AsmdefDebug.cs" t="Include" />
         </e>
@@ -36,6 +36,7 @@
           <e p="AnimalStatManager.cs" t="Include" />
           <e p="BarValueChange.cs" t="Include" />
           <e p="CameraMovement.cs" t="Include" />
+          <e p="ClockTurn.cs" t="Include" />
           <e p="createRooms.cs" t="Include" />
           <e p="DailyStatusEffectCheck.cs" t="Include" />
           <e p="DayAndNightCycle.cs" t="Include" />
@@ -45,6 +46,8 @@
           <e p="DialogueTrigger.cs" t="Include" />
           <e p="Dog.cs" t="Include" />
           <e p="DogActivities.cs" t="Include" />
+          <e p="EndCondition.cs" t="Include" />
+          <e p="EndCondition1.cs" t="Include" />
           <e p="fpsDisplay.cs" t="Include" />
           <e p="hightlightStats.cs" t="Include" />
           <e p="MoveBackground.cs" t="Include" />

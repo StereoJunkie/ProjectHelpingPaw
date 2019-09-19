@@ -27,6 +27,10 @@ public class Dog : Animal
     public GameObject room;
     private Room roomScript;
 
+    [SerializeField] private int adoptionRates;
+    [SerializeField] private float adoptionChance;
+    [SerializeField] private float adopteeChance;
+
 
     public bool poopTimer = false;
     public float poopTimePassed = 0f;
@@ -122,9 +126,14 @@ public class Dog : Animal
         //adoption process
         if (dayNightCycle.timeActive)
         {
-            if (dayNightCycle.DaysSinceStart > dayNightCycle.previousDay)
+            if ((int)dayNightCycle.DaysSinceStart > dayNightCycle.previousDay)
             {
-                float randomAdoptionChance = Random.Range(1f, 100f);
+                adoptionRates += 1;
+                
+                float randomAdoptionChance = Random.Range(1f, 70f);
+                adopteeChance = randomAdoptionChance;
+                adoptionChance = CalculateAdoptionChance();
+
                 if (randomAdoptionChance < CalculateAdoptionChance())
                 {
                     Adopted = true;
@@ -132,6 +141,7 @@ public class Dog : Animal
                     Debug.Log(name + " Has been adopted!");
                 }
 
+                dayNightCycle.previousDay = (int) dayNightCycle.DaysSinceStart;
             }
         }
 

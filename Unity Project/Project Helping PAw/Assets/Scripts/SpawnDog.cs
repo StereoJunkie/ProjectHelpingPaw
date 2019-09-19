@@ -8,6 +8,7 @@ public class SpawnDog : MonoBehaviour
     [SerializeField] private GameObject gameManager;
     [SerializeField] private GameObject prefab_dog;
     [SerializeField] private List<float> timestamps;
+    [SerializeField] private bool spawnDouble;
 
     private BoxCollider colliderBox;
     private DayAndNightCycle dayCycle;
@@ -58,6 +59,13 @@ public class SpawnDog : MonoBehaviour
             roomManager.dogs.Add(spawnedDog);
             spawnedDog.transform.parent = outside.transform;
             initialSpawn = true;
+            if (spawnDouble)
+            {
+                spawnLocation = new Vector3(Random.Range(colliderBox.transform.position.x-colliderBox.size.x*0.5f,colliderBox.transform.position.x-colliderBox.size.x*0.5f+colliderBox.size.x),Random.Range(colliderBox.transform.position.y-colliderBox.size.y*0.5f,colliderBox.transform.position.y-colliderBox.size.y*0.5f+colliderBox.size.y),Random.Range(colliderBox.transform.position.z-colliderBox.size.z*0.5f,colliderBox.transform.position.z-colliderBox.size.z*0.5f+colliderBox.size.z));
+                spawnedDog = Instantiate(prefab_dog, spawnLocation, prefab_dog.transform.rotation);
+                roomManager.dogs.Add(spawnedDog);
+                spawnedDog.transform.parent = outside.transform;
+            }
         }
         if (roomManager.developerMode)
         {
@@ -89,6 +97,13 @@ public class SpawnDog : MonoBehaviour
                     GameObject spawnedDog = Instantiate(prefab_dog, spawnLocation, prefab_dog.transform.rotation);
                     spawnedDog.transform.parent = outside.transform;
                     roomManager.dogs.Add(spawnedDog);
+                    if (spawnDouble)
+                    {
+                        spawnLocation = new Vector3(Random.Range(colliderBox.transform.position.x-colliderBox.size.x*0.5f,colliderBox.transform.position.x-colliderBox.size.x*0.5f+colliderBox.size.x),Random.Range(colliderBox.transform.position.y-colliderBox.size.y*0.5f,colliderBox.transform.position.y-colliderBox.size.y*0.5f+colliderBox.size.y),Random.Range(colliderBox.transform.position.z-colliderBox.size.z*0.5f,colliderBox.transform.position.z-colliderBox.size.z*0.5f+colliderBox.size.z));
+                        spawnedDog = Instantiate(prefab_dog, spawnLocation, prefab_dog.transform.rotation);
+                        spawnedDog.transform.parent = outside.transform;
+                        roomManager.dogs.Add(spawnedDog);
+                    }
                 }
             }
         }

@@ -195,17 +195,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83659448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0000028000748}
-  m_LocalScale: {x: 0.80563396, y: 0.6358579, z: 0.6358579}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000028000745}
+  m_LocalScale: {x: 0.8056345, y: 0.6358599, z: 0.6358599}
   m_Children: []
   m_Father: {fileID: 234112858}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 96.50665, y: 0.000038146973}
-  m_SizeDelta: {x: 241.4, y: 0}
-  m_Pivot: {x: 0.00000011756774, y: 0.49999657}
+  m_AnchoredPosition: {x: 104.20001, y: -0.001876831}
+  m_SizeDelta: {x: 239, y: 0}
+  m_Pivot: {x: 0.000000048428774, y: 0.5}
 --- !u!114 &83659450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,8 +226,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: dd36692b0df32dd44a4c9843b7e7c3a0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -278,7 +278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 95.67853, y: -0.0026855469}
+  m_AnchoredPosition: {x: 104.19999, y: -0.0026855469}
   m_SizeDelta: {x: 239, y: 0}
   m_Pivot: {x: 0.000000018626451, y: 0.49999663}
 --- !u!114 &107553747
@@ -301,8 +301,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: dd36692b0df32dd44a4c9843b7e7c3a0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -481,7 +481,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: a4d85ba84f844c743970ffdc3f5d58b8, type: 3}
+  m_Texture: {fileID: 2800000, guid: dee5784b5be52294797aa71e01a2ae02, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -742,7 +742,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 592873a36d742604aa06c296d01ac9c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f3c6279941197a45adfe1f064da41e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -876,17 +876,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360218827}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.4619749, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000028000745}
+  m_LocalScale: {x: 0.8056345, y: 0.6358599, z: 0.6358599}
   m_Children: []
   m_Father: {fileID: 234112858}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 100.000015, y: -1.0001106}
-  m_SizeDelta: {x: 171, y: 0}
-  m_Pivot: {x: -0.000000006519258, y: 0.5}
+  m_AnchoredPosition: {x: 104.2, y: -0.001876831}
+  m_SizeDelta: {x: 239, y: 0}
+  m_Pivot: {x: 0.000000048428774, y: 0.5}
 --- !u!114 &360218829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,14 +900,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23526213, g: 0.94509804, b: 0.19215685, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b1253261449f66f4cb9ea33b7e8953bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5b246b53e8367f4da5e1273d67ae0b7, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1124,6 +1124,7 @@ RectTransform:
   - {fileID: 1361216465}
   - {fileID: 312821717}
   - {fileID: 1226073330}
+  - {fileID: 929865680}
   m_Father: {fileID: 1924880884}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1665,6 +1666,78 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 707acc01db538bd408b98d54371707e5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29d2bd7124421c24fb78205a61fb2d5d, type: 3}
+--- !u!1 &929865679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 929865680}
+  - component: {fileID: 929865682}
+  - component: {fileID: 929865681}
+  m_Layer: 5
+  m_Name: RawImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &929865680
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929865679}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.15658872, y: 0.08220907, z: 0.15658872}
+  m_Children: []
+  m_Father: {fileID: 515848426}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -18.2, y: -44.8}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &929865681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929865679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 2800000, guid: a84ef93f713f04149b222fbcba4598ac, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &929865682
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929865679}
+  m_CullTransparentMesh: 0
 --- !u!1 &945824056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,7 +2134,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082175915}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.0000028000745}
   m_LocalScale: {x: 0.8056345, y: 0.6358599, z: 0.6358599}
   m_Children: []
@@ -2070,7 +2143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 95.74776, y: -0.001876831}
+  m_AnchoredPosition: {x: 104.2, y: -0.001876831}
   m_SizeDelta: {x: 239, y: 0}
   m_Pivot: {x: 0.000000048428774, y: 0.5}
 --- !u!114 &1082175917
@@ -2093,8 +2166,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: dd36692b0df32dd44a4c9843b7e7c3a0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2138,17 +2211,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105868104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.4619749, z: 0.44559}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000012476768}
+  m_LocalScale: {x: 0.80563396, y: 0.6358579, z: 0.28333}
   m_Children: []
   m_Father: {fileID: 2089449886}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 97.70002, y: 0}
-  m_SizeDelta: {x: 171, y: 0}
-  m_Pivot: {x: -0.0000001937151, y: 0.5}
+  m_AnchoredPosition: {x: 104.2, y: -0.0026855469}
+  m_SizeDelta: {x: 239, y: 0}
+  m_Pivot: {x: 0.000000018626451, y: 0.49999663}
 --- !u!114 &1105868106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2162,14 +2235,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.94509804, g: 0.3537255, b: 0.19215685, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b1253261449f66f4cb9ea33b7e8953bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5b246b53e8367f4da5e1273d67ae0b7, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2741,6 +2814,7 @@ MonoBehaviour:
   prefab_dog: {fileID: 3183793486422316144, guid: de8aaaea0a4571f44af6ad6276ca8cfa,
     type: 3}
   timestamps: []
+  spawnDouble: 1
   timeStampsToCheck: []
   outside: {fileID: 2110089950}
 --- !u!1 &1464006613
@@ -3087,17 +3161,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827606447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.46197, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000028000745}
+  m_LocalScale: {x: 0.8056345, y: 0.6358599, z: 0.6358599}
   m_Children: []
   m_Father: {fileID: 1869954658}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 97.674934, y: -0.000061035156}
-  m_SizeDelta: {x: 171, y: 0}
-  m_Pivot: {x: -0.000000070780516, y: 0.49999994}
+  m_AnchoredPosition: {x: 104.19999, y: -0.001876831}
+  m_SizeDelta: {x: 239, y: 0}
+  m_Pivot: {x: 0.000000048428774, y: 0.5}
 --- !u!114 &1827606449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3111,14 +3185,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19134924, g: 0.3215302, b: 0.9433962, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b1253261449f66f4cb9ea33b7e8953bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5b246b53e8367f4da5e1273d67ae0b7, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3297,7 +3371,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 3e1444c46b7339b4db116550d5f3ff81, type: 3}
+  m_Texture: {fileID: 2800000, guid: 73d2236a3018fc5449afe860c5dddaa5, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3341,12 +3415,7 @@ GameObject:
   - component: {fileID: 1914473556}
   - component: {fileID: 1914473555}
   - component: {fileID: 1914473557}
-  - component: {fileID: 1914473558}
-  - component: {fileID: 1914473559}
-  - component: {fileID: 1914473560}
-  - component: {fileID: 1914473561}
   - component: {fileID: 1914473563}
-  - component: {fileID: 1914473562}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3371,7 +3440,7 @@ MonoBehaviour:
   - {fileID: 8918021555802599790, guid: fbd83e7ee4c4f854ea0756ad5d02208a, type: 3}
   - {fileID: 306743305993838456, guid: 9aa9c16ecbbbe3741b689512f407866d, type: 3}
   outside_Prefab: {fileID: 0}
-  roomAmount: 3
+  roomAmount: 6
   developerMode: 1
   panAble: 1
   DogsAdopted: 0
@@ -3425,10 +3494,10 @@ MonoBehaviour:
   NutritionToHygiene: 32.1
   NutritionToSocialization: 65.4
   HygieneToSocialization: 50.6
-  drainageNutrition: 16
-  drainageHygiene: 9.4
-  drainageSocialization: 9
-  ActivityTimer: 10
+  drainageNutrition: 21.7
+  drainageHygiene: 14.7
+  drainageSocialization: 14.7
+  ActivityTimer: 15
 --- !u!114 &1914473541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4007,14 +4076,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    Name: Tutor John Paw
+    Name: John Paw
     Sentences:
-    - 'Hey there, Welcome to your first day at the job!
-
-      We are going to take it nice and easy to ease you into it.'
-    - Let's start by explaining the core concept. Your goal is to make sure as many
-      dogs as possible get adopted!
-    - 'Start by clicking on the homeless dog that is waiting for you to shelter it. '
+    - Good to see you here! I was wondering when you were going to show up.
+    - Lets get the ball rolling, there are two dogs outside waiting for you.
 --- !u!114 &1914473556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4029,10 +4094,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingText:
   - {fileID: 1914473555}
-  - {fileID: 1914473557}
-  - {fileID: 1914473558}
-  - {fileID: 1914473559}
-  - {fileID: 1914473560}
   ClickedDog: 0
   ZoomIntoRoom: 0
   OpenedActivityPanel: 0
@@ -4047,112 +4108,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1914473536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b2c0b9d962a6cd4c9b6d0a994dc360f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    Name: Tutor John Paw
-    Sentences:
-    - Great job, you sheltered your first dog!
-    - Click on the room, to inspect the dog and see what its needs are.
---- !u!114 &1914473558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914473536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b2c0b9d962a6cd4c9b6d0a994dc360f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    Name: Tutor John Paw
-    Sentences:
-    - At the top left of your screen you see its needs, keep these up by letting a
-      volunteer do an activity with it.
-    - Swipe up to open the activity panel!
---- !u!114 &1914473559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914473536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b2c0b9d962a6cd4c9b6d0a994dc360f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    Name: Tutor John Paw
-    Sentences:
-    - Here you have a list of activities. These influence the needs of the dog.
-    - At the bottom you see how many volunteers that you have used. Make sure to manage
-      them properly!
-    - 'CAREFUL! there is also the "Euthanize" button. '
-    - 'Use this ONLY when you feel like the dog has had enough opportunities to get
-      adopted. '
-    - The dogs on the street deserve a chance to find their forever home too!
-    - Swipe down to close the panel.
---- !u!114 &1914473560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914473536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b2c0b9d962a6cd4c9b6d0a994dc360f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    Name: Tutor John Paw
-    Sentences:
-    - 'That was easier than you thought wasn''t it? '
-    - Adoption happens every day, keep their needs up. The better the condition, the
-      more chance of adoption.
-    - One last thing before I leave you to it. Don't put too many dogs down but also
-      don't let them starve outside!
-    - It is vital for us to keep them alive and to send them to their forever homes!
-    - That didn't sounds to grim did it? Ah well, good luck and give it your all!
---- !u!114 &1914473561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914473536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40a8daa1afb2fca4480efac9e48710a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 58996b8c88cb6dc4185c04fcb1cf520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roomManager: {fileID: 1914473537}
-  amountAdoptedToWin: 1
-  amountAdoptedToLose: 5
-  dialogueWin: {fileID: 1914473562}
+  amountAdoptedToLose: 10
   dialogueLose: {fileID: 1914473563}
---- !u!114 &1914473562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914473536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b2c0b9d962a6cd4c9b6d0a994dc360f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    Name: Tutor John Paw
-    Sentences:
-    - Great job, you got your first dog adopted!
-    - Let's get you moving to a bigger shelter that is in dire need of a manager like
-      you.
 --- !u!114 &1914473563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4166,10 +4127,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    Name: Tutor John Paw
+    Name: John Paw
     Sentences:
-    - Oh no! You let to many dogs die, luckily this was only the tutorial level.
-    - Let's try that again...
+    - Oh boy you really messed up this time...
+    - 'The number of dogs passed away led to the unfortunate grim ending of your day. '
+    - Now you've experienced first-hand the difficulties that animal shelters face
+      on a daily basis and knowing is half the battle.
 --- !u!1 &1915984402
 GameObject:
   m_ObjectHideFlags: 0
@@ -4500,7 +4463,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: b977076a7f7a2884880d2748c7c2f2f4, type: 3}
+  m_Texture: {fileID: 2800000, guid: 6f4e81f58b2b82d46a75d9518690a1fd, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
