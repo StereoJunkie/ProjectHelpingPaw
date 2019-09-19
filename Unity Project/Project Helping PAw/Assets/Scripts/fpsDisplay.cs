@@ -20,7 +20,7 @@ public class fpsDisplay : MonoBehaviour
  
     void OnGUI()
     {
-        if (roomManager.developerMode)
+        /*if (roomManager.developerMode)
         {
             int width = Screen.width;
             int height = Screen.height;
@@ -34,6 +34,6 @@ public class fpsDisplay : MonoBehaviour
             float fps = 1.0f / timePassed;
             string text = string.Format("{0:0.0} ms ({1:0.} fps)", milliSecond, fps);
             GUI.Label(rect, text, style);
-        }
+        }*/
     }
 }
